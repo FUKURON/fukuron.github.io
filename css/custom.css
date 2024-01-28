@@ -1,0 +1,84 @@
+body {
+  padding-top: 0px;
+  height: 100%;
+  width: 100%;
+  font-family: "Noto Sans JP", sans-serif;
+  background-color: #000;
+}
+h2 {
+  font-size: 1.5rem;
+}
+h3 {
+  font-size: 1rem;
+}
+h4 {
+  font-size: 0.7rem;
+}
+ul {
+  padding-left: 0;
+}
+li {
+  list-style: none;
+}
+
+.top {
+  width: 100%;
+  background-color: #f5f5f5;
+}
+.top-text {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 2.5rem;
+}
+.main {
+  text-align: center;
+  background-color: #f5f5f5;
+}
+.card-about {
+  width: 16rem;
+}
+.footer {
+  background-color: #000;
+  color: #fff;
+  font-size: 0.7rem;
+  min-height: 10vh;
+}
+.footer-col {
+  min-height: 5vh;
+}
+.copylight {
+  min-height: 0vh;
+  text-align: center;
+  color: #fff;
+  font-size: 0.7rem;
+}
+
+.starter-template {
+  padding: 50px 0px;
+  text-align: center;
+  min-height: 50vh;
+}
+
+.btn-contact {
+  background-color: #bd3862;
+  color: #fff;
+}
+.btn-contact:hover {
+  background-color: #bd3862;
+  color: #fff;
+}
+
+@media (min-width: 970px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 768px) {
+  .dl-horizontal dt {
+    width: 280px;
+    white-space: normal;
+    margin-bottom: 5px;
+  }
+  .dl-horizontal dd {
+    margin-left: 300px;
+  }
+}
