@@ -49,12 +49,18 @@ li {
 @media (max-width: 969px) {
   .card-about {
     width: 85%;
-    margin: 0.3rem auto;
+    margin: 0;
     padding: 1rem;
   }
   
   .col-lg-3 {
-    margin-bottom: 0.5rem;
+    margin: 0;
+    padding: 0.3rem 0;
+  }
+  
+  .row {
+    margin: 0;
+    align-items: flex-start;
   }
 }
 
@@ -101,6 +107,19 @@ li {
   padding: 0.5rem 0;
 }
 
+.dl-horizontal dt {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.dl-horizontal dd {
+  width: 100%;
+  text-align: center;
+  margin-left: 0;
+  margin-bottom: 5px;
+}
+
 .starter-template {
   padding: 50px 0px;
   text-align: center;
@@ -137,14 +156,15 @@ li {
 }
 @media (min-width: 768px) {
   .dl-horizontal dt {
-    width: 280px;
+    width: 100%;
     white-space: normal;
     margin-bottom: 5px;
-    text-align: left;
-    padding-left: 1rem;
+    text-align: center;
   }
   .dl-horizontal dd {
-    margin-left: 300px;
+    width: 100%;
+    margin-left: 0;
     margin-bottom: 5px;
+    text-align: center;
   }
 }
