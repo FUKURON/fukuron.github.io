@@ -41,14 +41,9 @@ li {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  margin: 0.5rem 0;
-}
-
-/* モバイルファースト: デフォルトスタイル */
-.card-about {
   width: 100%;
-  margin: 0.5rem 0 1.5rem;
-  padding: 1rem;
+  margin: 0.5rem 0 2rem !important; /* 下部の余白を2remに増やして確実に表示 */
+  box-sizing: border-box;
 }
 
 .card-about h3 {
@@ -87,22 +82,32 @@ li {
   background-color: #000;
   color: #fff;
   font-size: 0.7rem;
-  text-align: left;
+  text-align: left !important;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   min-height: 0vh;
+  padding: 1rem;
+}
+
+.footer-col h3,
+.footer-col h4 {
+  text-align: left !important;
+  margin: 0;
+  padding: 0;
 }
 
 .footer-col ul {
-  text-align: left;
+  text-align: left !important;
   list-style-position: inside;
   padding-left: 0;
+  margin-top: 0.5rem;
 }
 
 .footer-col li {
-  text-align: left;
+  text-align: left !important;
   margin-bottom: 0.3rem;
+  padding-left: 0;
 }
 
 .footer {
@@ -175,6 +180,7 @@ li {
   
   .card-about {
     padding: 1.2rem;
+    margin-bottom: 1.5rem !important; /* PCでも1.5remの余白を維持 */
   }
   
   .col-lg-4 {
