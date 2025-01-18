@@ -34,8 +34,6 @@ li {
   background-color: #f5f5f5;
 }
 .card-about {
-  width: 24rem;
-  min-height: 12rem;
   padding: 1.2rem;
   text-align: center;
   background-color: #f5f5f5;
@@ -48,32 +46,28 @@ li {
 
 /* モバイルファースト: デフォルトスタイル */
 .card-about {
-  width: 85%;
-  margin: 0;
+  width: 100%;
+  margin: 0.5rem 0;
   padding: 1rem;
 }
 
 .card-about h3 {
   font-size: 1.2rem;
-  margin: 0 0 1.5rem 0;
+  margin: 0 0 1rem 0;
   font-weight: bold;
 }
 
-.card-about p {
-  font-size: 1rem;
-  line-height: 1.8;
-  margin: 0;
-  flex-grow: 1;
-}
-
+.card-about p,
 .card-about ul {
   font-size: 1rem;
   line-height: 1.8;
-  text-align: center;
-  padding-left: 0;
-  list-style-position: inside;
   margin: 0;
-  flex-grow: 1;
+  padding: 0;
+}
+
+.card-about ul {
+  text-align: center;
+  list-style-position: inside;
 }
 
 /* フッター関連の共通スタイル */
@@ -160,13 +154,12 @@ li {
   }
   
   .card-about {
-    width: 24rem;
-    min-height: 12rem;
     padding: 1.2rem;
-    margin: 0.5rem 0;
   }
   
   .col-lg-3 {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
     margin-bottom: 1rem;
   }
 }
