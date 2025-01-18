@@ -55,8 +55,9 @@ li {
 .card-about ul {
   font-size: 1rem;
   line-height: 1.5;
-  text-align: left;
-  padding-left: 1rem;
+  text-align: center;
+  padding-left: 0;
+  list-style-position: inside;
 }
 .footer {
   background-color: #000;
@@ -87,6 +88,20 @@ li {
 .btn-contact:hover {
   background-color: #bd3862;
   color: #fff;
+}
+
+/* カードの中央寄せ用スタイル */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.col-lg-3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
 }
 
 @media (min-width: 970px) {
