@@ -124,21 +124,20 @@ li {
 }
 
 /* グリッドシステムの基本スタイル */
-.row,
-.col-lg-3 {
+.row {
   display: flex;
   justify-content: center;
   margin: 0;
-}
-
-.row {
   flex-wrap: wrap;
   align-items: flex-start;
 }
 
-.col-lg-3 {
+.col-lg-4 {
+  display: flex;
+  justify-content: center;
   align-items: center;
   padding: 0.3rem 0;
+  margin: 0;
 }
 
 /* レスポンシブスタイル */
@@ -157,7 +156,7 @@ li {
     padding: 1.2rem;
   }
   
-  .col-lg-3 {
+  .col-lg-4 {
     flex: 0 0 33.333333%;
     max-width: 33.333333%;
     margin-bottom: 1rem;
