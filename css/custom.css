@@ -90,24 +90,50 @@ li {
   padding: 1rem;
 }
 
-.footer-col h3,
-.footer-col h4 {
+/* フッターの基本スタイル */
+.footer {
+  text-align: left;
+}
+
+/* フッターのコンテナスタイル */
+.footer .container {
+  text-align: left;
+}
+
+/* フッターの行スタイル */
+.footer .row {
+  text-align: left;
+}
+
+/* フッターカラムの基本スタイル */
+.footer .col-lg-4.footer-col {
+  text-align: left !important;
+}
+
+/* フッターの見出しスタイル */
+.footer .col-lg-4.footer-col h3,
+.footer .col-lg-4.footer-col h4 {
   text-align: left !important;
   margin: 0;
   padding: 0;
+  width: 100%;
 }
 
-.footer-col ul {
+/* フッターのリストスタイル */
+.footer .col-lg-4.footer-col ul {
   text-align: left !important;
   list-style-position: inside;
   padding-left: 0;
   margin-top: 0.5rem;
+  width: 100%;
 }
 
-.footer-col li {
+/* フッターのリストアイテムスタイル */
+.footer .col-lg-4.footer-col li {
   text-align: left !important;
   margin-bottom: 0.3rem;
   padding-left: 0;
+  width: 100%;
 }
 
 .footer {
