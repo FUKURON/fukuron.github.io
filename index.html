@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -21,17 +21,11 @@
     <meta property="og:site_name" content="株式会社FUKURON" />
     <meta property="og:description" content="推しのいる女性が推し活を通して自分が輝ける世の中を作る" />
 
-    <!-- Bootstrap -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
-      crossorigin="anonymous"
-    />
+    <!-- Custom Styles -->
     <link rel="stylesheet" href="css/custom.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet" />
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -42,80 +36,73 @@
   </head>
 
   <body>
-    <div>
-      <nav class="navbar bg-black">
-        <div class="container-fluid">
-          <h1 class="navbar-brand mb-0 h1 text-white">株式会社FUKURON</h1>
-          <a href="mailto:info.fukuron@gmail.com" class="btn btn-contact" type="submit">contact</a>
-        </div>
-      </nav>
-
-      <div class="card p-0 top border-0 rounded-0">
-        <img class="card-img top-image rounded-0" src="image/top.jpg" alt="Cheer for supporting your fave" />
-        <!--
-        <div class="card-img-overlay top-text">
-          <p class="text-black">Cheers for supporting your fave</p>
-        </div>
-        -->
+    <div class="hero">
+      <img class="hero-image" src="image/top.jpg" alt="Cheer for supporting your fave" />
+      <div class="hero-content">
+        <h1 class="text-white">株式会社FUKURON</h1>
+        <a href="mailto:info.fukuron@gmail.com" class="btn btn-contact" type="submit">contact</a>
       </div>
+    </div>
 
-      <div class="main pt-5">
-        <div class="container">
-          <h2>会社概要</h2>
-          <p>Company Profile</p>
-          <div class="row justify-content-md-center">
-            <div class="col-lg-4 card-about">
+    <section class="company-profile">
+      <div class="container">
+        <h2>会社概要</h2>
+        <p class="section-subtitle">Company Profile</p>
+        <div class="row justify-content-md-center">
+          <div class="col-lg-4">
+            <article class="card-about">
               <h3>ミッション</h3>
               <p>推しのいる女性が<br>推し活を通して<br>自分が輝ける世の中を作る</p>
-            </div>
-            <div class="col-lg-4 card-about">
+            </article>
+          </div>
+          <div class="col-lg-4">
+            <article class="card-about">
               <h3>ビジョン</h3>
               <p>自分だけの世界で<br>推しを愛でることができる</p>
-            </div>
-            <div class="col-lg-4 card-about">
+            </article>
+          </div>
+          <div class="col-lg-4">
+            <article class="card-about">
               <h3>バリュー</h3>
               <ul>
                 <li>推しを愛でる場所を提供</li>
                 <li>世界一オタクに優しい</li>
                 <li>推し活女子を応援</li>
               </ul>
-            </div>
+            </article>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="footer pt-5">
-        <div class="container">
-          <div class="row text-start">
-            <div class="col-lg-4 footer-col text-start">
-              <h3>株式会社FUKURON</h3>
-            </div>
-            <div class="col-lg-4 footer-col text-start">
-              <h4>株式会社FUKURONの事業</h4>
-              <ul>
-                <li>推し活アプリ「ADOREE」の企画制作・運営</li>
-                <li>その他推し活アプリの企画制作・運営</li>
-                <li>推し活グッズの企画・販売</li>
-                <li>推し活SNSの企画・運営</li>
-              </ul>
-            </div>
-            <div class="col-lg-4 footer-col text-start">
-              <h4>会社所在地</h4>
-              <ul>
-                <li>〒150-0001</li>
-                <li>東京都渋谷区神宮前1-15-1 VIA原宿201</li>
-                <li>03-6804-5153</li>
-                <li>代表取締役 加藤明日香</li>
-              </ul>
-            </div>
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 footer-col">
+            <h3>株式会社FUKURON</h3>
+          </div>
+          <div class="col-lg-4 footer-col">
+            <h4>株式会社FUKURONの事業</h4>
+            <ul>
+              <li>推し活アプリ「ADOREE」の企画制作・運営</li>
+              <li>その他推し活アプリの企画制作・運営</li>
+              <li>推し活グッズの企画・販売</li>
+              <li>推し活SNSの企画・運営</li>
+            </ul>
+          </div>
+          <div class="col-lg-4 footer-col">
+            <h4>会社所在地</h4>
+            <ul>
+              <li>〒150-0001</li>
+              <li>東京都渋谷区神宮前1-15-1 VIA原宿201</li>
+              <li>03-6804-5153</li>
+              <li>代表取締役 加藤明日香</li>
+            </ul>
           </div>
         </div>
-      </div>
-
-      <div class="container copylight pt-5">
         <hr />
-        <p>&copy; 2024-2025 株式会社FUKURON All Rights Reserved.</p>
+        <p class="copyright-text">&copy; 2024-2025 株式会社FUKURON All Rights Reserved.</p>
       </div>
-    </div>
+    </footer>
   </body>
 </html>
