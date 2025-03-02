@@ -1,0 +1,153 @@
+/* 基本リセット */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Zen Kaku Gothic New", serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* ヒーローセクション */
+.hero {
+  background: url('../image/hero-bg.webp') no-repeat center center/cover;
+  color: #333;
+  height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.hero-logo {
+  width: 400px; /* デフォルトはモバイル向けのサイズ */
+  height: auto;
+}
+.hero-content p {
+  font-size: 1.5em;
+  padding-bottom: 15px;
+  font-weight: 500;
+}
+
+/* コンテンツセクション */
+.content-section {
+  max-width: 650px;       /* お好みの幅に調整 */
+  margin: 0 auto;      /* 上下は60px、左右は自動で中央寄せ */
+  padding: 80px 20px 0px 20px;
+  text-align: left;
+}
+
+.content-section h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+
+/* ーーーーーーーーアプリ */
+/* アプリ一覧コンテナ */
+.app-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;  /* 左寄せ */
+}
+
+/* 各アプリカード */
+.app-card {
+  background-color: #fff;
+  border: none;
+  border-left: 4px solid #CCC; /* アクセントカラー */
+  width: 280px;
+  padding: 20px;
+  text-align: left;
+}
+
+/* アプリアイコン（角を丸く） */
+.app-icon {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border: 1px solid #ccc;
+  border-radius: 35px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* アプリ名 */
+.app-name {
+  font-size: 1.2em;
+  margin-bottom: 5px;
+}
+
+/* アプリ説明 */
+.app-description {
+  font-size: 0.95em;
+  color: #666;
+  margin-bottom: 20px;
+}
+/* アプリストアボタン（画像） */
+.app-store-button {
+  width: 120px; /* 必要に応じてサイズ調整 */
+  display: block;
+}
+
+
+/* ーーーーーーーー会社情報 */
+
+.company-info dl {
+  margin: 0;
+  padding: 0;
+}
+
+.company-info dt {
+  font-size: 0.9rem;   /* ラベル部分をやや小さめに */
+  color: #666;
+  margin-top: 1.2em;   /* 前の要素との間隔をあける */
+}
+
+.company-info dd {
+  font-size: 1rem;     /* 内容部分 */
+  margin: 0 0 0.8em;   /* 下に余白を入れる */
+}
+
+/* 強調 */
+#press{
+  font-size: 1.4em;
+}
+
+
+/* フッター */
+.site-footer {
+  background-color: #f4f4f4;
+  text-align: center;
+  margin-top: 100px;
+  padding: 20px;
+  border-top: 1px solid #eaeaea;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+
+  .hero-logo {
+    width: 300px;
+    height: auto;
+  }
+
+  .hero {
+  height: 50vh;
+    padding: 40px 20px;
+  }
+
+  .hero-content p {
+    font-size: 1.2em;
+    padding-bottom: 15px;
+  }
+
+  .content-section {
+    padding: 40px 20px 40px 40px;
+  }
+}
