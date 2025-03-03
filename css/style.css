@@ -8,7 +8,7 @@
 body {
   font-family: "Zen Kaku Gothic New", serif;
   line-height: 1.6;
-  color: #333;
+  background-color: #f5f5f5;
 }
 
 /* ヒーローセクション */
@@ -30,7 +30,6 @@ body {
 .hero-content p {
   font-size: 1.5em;
   padding-bottom: 15px;
-  font-weight: 500;
 }
 
 /* コンテンツセクション */
@@ -48,50 +47,56 @@ body {
 
 
 /* ーーーーーーーーアプリ */
-/* アプリ一覧コンテナ */
-.app-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: flex-start;  /* 左寄せ */
+
+/* カードを並べるコンテナ */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* PCでは2列 */
+  gap: 20px; /* カード間の余白 */
 }
 
-/* 各アプリカード */
-.app-card {
+/* カード全体 */
+.card {
   background-color: #fff;
-  border: none;
-  border-left: 4px solid #CCC; /* アクセントカラー */
-  width: 280px;
-  padding: 20px;
-  text-align: left;
+  border-radius: 6px;
+  overflow: hidden; /* 角丸の内側に画像を収める */
+  display: flex;
+  flex-direction: column;
 }
 
-/* アプリアイコン（角を丸く） */
-.app-icon {
-  width: 150px;
-  height: 150px;
+/* カード上部の画像 */
+.card-image {
+  width: 100%;
+  height: 180px; /* お好みで調整 */
   object-fit: cover;
-  border: 1px solid #ccc;
-  border-radius: 35px;
-  margin-bottom: 10px;
-  display: block;
 }
 
-/* アプリ名 */
-.app-name {
+/* カード下部のテキスト領域 */
+.card-content {
+  padding: 16px;
+}
+
+/* カードのタイトル */
+.card-title {
   font-size: 1.2em;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
 }
 
-/* アプリ説明 */
-.app-description {
-  font-size: 0.95em;
+/* 日付や説明文 */
+.card-date {
+  font-size: 0.9rem;
   color: #666;
-  margin-bottom: 20px;
+  margin-bottom: 8px;
 }
+.card-description {
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+
+
 /* アプリストアボタン（画像） */
 .app-store-button {
-  width: 120px; /* 必要に応じてサイズ調整 */
+  width: 140px; /* 必要に応じてサイズ調整 */
   display: block;
 }
 
@@ -124,13 +129,20 @@ body {
 .site-footer {
   background-color: #f4f4f4;
   text-align: center;
-  margin-top: 100px;
+  margin-top: 80px;
   padding: 20px;
-  border-top: 1px solid #eaeaea;
 }
 
 /* レスポンシブ対応 */
 @media (max-width: 768px) {
+
+  .card-container {
+    grid-template-columns: 1fr; /* 1列表示 */
+  }
+
+  .card-image {
+    height: 200px; /* モバイル用に高さを微調整してもOK */
+  }
 
   .hero-logo {
     width: 300px;
@@ -148,6 +160,6 @@ body {
   }
 
   .content-section {
-    padding: 40px 20px 40px 40px;
+    padding: 40px 30px 40px 30px;
   }
 }
