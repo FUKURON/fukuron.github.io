@@ -19,7 +19,6 @@
       width: 360px;
       background: #fff;
       border-radius: 12px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
       padding: 12px;
     }
 
@@ -66,17 +65,25 @@
       height: 40px;
       padding: 0;
       border-radius: 50%;
-      border: 2px solid #2db7f5;
-      background: #fff;
-      color: #2db7f5;
-      font-weight: 600;
+      border: none;
       cursor: pointer;
       transition: all 0.2s;
     }
 
-    button:hover {
+    button.btn-blue {
       background: #2db7f5;
-      color: #fff;
+    }
+
+    button.btn-blue:hover {
+      background: #1a9fd8;
+    }
+
+    button.btn-orange {
+      background: #f5a623;
+    }
+
+    button.btn-orange:hover {
+      background: #d88f1a;
     }
 
     .small {
@@ -237,9 +244,9 @@
       const buttonRow = document.createElement('div');
       buttonRow.className = 'button-row';
       const scores = [5, 4, 3, 2, 1, 0];
-      scores.forEach((score) => {
+      scores.forEach((score, index) => {
         const btn = document.createElement('button');
-        btn.textContent = '○';
+        btn.className = index < 3 ? 'btn-blue' : 'btn-orange';
         btn.onclick = () => {
           answer(score)
         };
