@@ -42,18 +42,41 @@
 
     .controls {
       display: flex;
+      flex-direction: column;
       gap: 8px;
       margin-top: 8px;
     }
 
+    .button-row {
+      display: flex;
+      gap: 4px;
+      justify-content: center;
+    }
+
+    .label-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: #666;
+      padding: 0 4px;
+    }
+
     button {
-      flex: 1;
-      padding: 10px;
-      border-radius: 8px;
-      border: 0;
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      border-radius: 50%;
+      border: 2px solid #2db7f5;
+      background: #fff;
+      color: #2db7f5;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    button:hover {
       background: #2db7f5;
       color: #fff;
-      font-weight: 600
     }
 
     .small {
@@ -62,7 +85,7 @@
     }
   </style> </head> 
 
-<body> <div class="chat" id="chat">  <div class="message bot" id="intro">こんにちは！推し活診断へようこそ。2択で答えてください。（全20問）</div> </div> <script>
+<body> <div class="chat" id="chat">  <div class="message bot" id="intro">こんにちは！推し活診断へようこそ。6段階で答えてください。（全20問）</div> </div> <script>
     const q = [
       // Q1-Q20：配列にAが1ならR/E/D/S寄り、Bが0ならW/I/L/V寄りに割り当て
       {
@@ -200,41 +223,53 @@
       appendBot((idx + 1) + '. ' + q[idx].q);
       const controls = document.createElement('div');
       controls.className = 'controls';
-      const b1 = document.createElement('button');
-      b1.textContent = 'A';
-      b1.onclick = () => {
-        answer(1)
-      };
-      const b2 = document.createElement('button');
-      b2.textContent = 'B';
-      b2.onclick = () => {
-        answer(0)
-      };
-      controls.appendChild(b1);
-      controls.appendChild(b2);
+
+      const labelRow = document.createElement('div');
+      labelRow.className = 'label-row';
+      const labelLeft = document.createElement('span');
+      labelLeft.textContent = 'そう思う';
+      const labelRight = document.createElement('span');
+      labelRight.textContent = 'そう思わない';
+      labelRow.appendChild(labelLeft);
+      labelRow.appendChild(labelRight);
+      controls.appendChild(labelRow);
+
+      const buttonRow = document.createElement('div');
+      buttonRow.className = 'button-row';
+      const scores = [5, 4, 3, 2, 1, 0];
+      scores.forEach((score) => {
+        const btn = document.createElement('button');
+        btn.textContent = '○';
+        btn.onclick = () => {
+          answer(score)
+        };
+        buttonRow.appendChild(btn);
+      });
+      controls.appendChild(buttonRow);
+
       document.getElementById('chat').appendChild(controls);
     }
 
-    function answer(val) { // val 1=A(yes) 0=B(no)
+    function answer(val) { // val 0-5: 5=そう思う, 0=そう思わない
       const controls = document.querySelector('.controls');
       if (controls) controls.remove();
-      appendUser(val ? 'A' : 'B');
-      // tally
+      const labels = ['そう思う', 'ややそう思う', '少しそう思う', 'あまりそう思わない', 'ややそう思わない', 'そう思わない'];
+      appendUser(labels[5 - val]);
+      // tally: グラデーション値をスコアに加算
       const t = q[idx].t;
-      const a = q[idx].a; // a==1 means A maps to that trait
-      if (val === 1) {
-        state[t]++;
-      } // else do nothing (B is opposite)
+      state[t] += val;
       idx++;
       setTimeout(showQuestion, 300);
     }
 
     function showResult() { // decide each axis
+      // 各traitは5問×最大5点=最大25点、閾値は中央値の12.5を超えるかどうか
+      const threshold = 13;
       const res = [];
-      res.push(state.R >= 3 ? 'R' : 'W'); // threshold simple
-      res.push(state.E >= 3 ? 'E' : 'I');
-      res.push(state.D >= 3 ? 'D' : 'L');
-      res.push(state.S >= 3 ? 'S' : 'V');
+      res.push(state.R >= threshold ? 'R' : 'W');
+      res.push(state.E >= threshold ? 'E' : 'I');
+      res.push(state.D >= threshold ? 'D' : 'L');
+      res.push(state.S >= threshold ? 'S' : 'V');
       const type = res.join('');
       appendBot('診断結果：' + type);
       // short desc
