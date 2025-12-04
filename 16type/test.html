@@ -67,20 +67,20 @@
       transition: all 0.2s;
     }
 
-    button.btn-blue {
-      border: 3px solid #2db7f5;
+    button.btn-pink {
+      border: 3px solid #ff69b4;
     }
 
-    button.btn-blue:hover {
-      background: rgba(45, 183, 245, 0.2);
+    button.btn-pink:hover {
+      background: rgba(255, 105, 180, 0.2);
     }
 
-    button.btn-orange {
-      border: 3px solid #f5a623;
+    button.btn-cyan {
+      border: 3px solid #5bc0de;
     }
 
-    button.btn-orange:hover {
-      background: rgba(245, 166, 35, 0.2);
+    button.btn-cyan:hover {
+      background: rgba(91, 192, 222, 0.2);
     }
 
     button.btn-large {
@@ -259,7 +259,7 @@
       const sizes = ['btn-large', 'btn-medium', 'btn-small', 'btn-small', 'btn-medium', 'btn-large'];
       scores.forEach((score, index) => {
         const btn = document.createElement('button');
-        const colorClass = index < 3 ? 'btn-blue' : 'btn-orange';
+        const colorClass = index < 3 ? 'btn-pink' : 'btn-cyan';
         btn.className = colorClass + ' ' + sizes[index];
         btn.onclick = () => {
           answer(score)
