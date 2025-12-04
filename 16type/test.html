@@ -61,29 +61,42 @@
     }
 
     button {
-      width: 40px;
-      height: 40px;
       padding: 0;
       border-radius: 50%;
-      border: none;
+      background: transparent;
       cursor: pointer;
       transition: all 0.2s;
     }
 
     button.btn-blue {
-      background: #2db7f5;
+      border: 3px solid #2db7f5;
     }
 
     button.btn-blue:hover {
-      background: #1a9fd8;
+      background: rgba(45, 183, 245, 0.2);
     }
 
     button.btn-orange {
-      background: #f5a623;
+      border: 3px solid #f5a623;
     }
 
     button.btn-orange:hover {
-      background: #d88f1a;
+      background: rgba(245, 166, 35, 0.2);
+    }
+
+    button.btn-large {
+      width: 44px;
+      height: 44px;
+    }
+
+    button.btn-medium {
+      width: 36px;
+      height: 36px;
+    }
+
+    button.btn-small {
+      width: 28px;
+      height: 28px;
     }
 
     .small {
@@ -244,9 +257,11 @@
       const buttonRow = document.createElement('div');
       buttonRow.className = 'button-row';
       const scores = [5, 4, 3, 2, 1, 0];
+      const sizes = ['btn-large', 'btn-medium', 'btn-small', 'btn-small', 'btn-medium', 'btn-large'];
       scores.forEach((score, index) => {
         const btn = document.createElement('button');
-        btn.className = index < 3 ? 'btn-blue' : 'btn-orange';
+        const colorClass = index < 3 ? 'btn-blue' : 'btn-orange';
+        btn.className = colorClass + ' ' + sizes[index];
         btn.onclick = () => {
           answer(score)
         };
