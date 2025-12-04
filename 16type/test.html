@@ -1,0 +1,266 @@
+<!doctype html> <html lang="ja"> 
+
+<head> 
+  <meta name="robots" content="noindex, nofollow">
+  <meta charset="utf-8"> 
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+ <title>推し活タイプ診断</title> 
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f6f6f6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .chat {
+      width: 360px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      padding: 12px;
+    }
+
+    .message {
+      padding: 10px 12px;
+      border-radius: 12px;
+      margin: 8px 0;
+      max-width: 85%;
+    }
+
+    .bot {
+      background: #eee;
+      align-self: flex-start
+    }
+
+    .user {
+      background: #d1f0ff;
+      align-self: flex-end
+    }
+
+    .controls {
+      display: flex;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    button {
+      flex: 1;
+      padding: 10px;
+      border-radius: 8px;
+      border: 0;
+      background: #2db7f5;
+      color: #fff;
+      font-weight: 600
+    }
+
+    .small {
+      font-size: 12px;
+      color: #666
+    }
+  </style> </head> 
+
+<body> <div class="chat" id="chat">  <div class="message bot" id="intro">こんにちは！推し活診断へようこそ。2択で答えてください。（全20問）</div> </div> <script>
+    const q = [
+      // Q1-Q20：配列にAが1ならR/E/D/S寄り、Bが0ならW/I/L/V寄りに割り当て
+      {
+        t: 'R',
+        q: '推しを見るとき、あなたは物語を妄想する？',
+        a: 1
+      },
+      {
+        t: 'R',
+        q: '推しが恋愛したら少し複雑に感じる？',
+        a: 1
+      },
+      {
+        t: 'R',
+        q: '推しへの感情の主語は「私（恋）」？',
+        a: 1
+      },
+      {
+        t: 'R',
+        q: '推しの言動で動くのは心（感情）？',
+        a: 1
+      },
+      {
+        t: 'R',
+        q: '推しを形容するなら「恋」？',
+        a: 1
+      },
+
+      {
+        t: 'E',
+        q: '推し語りは共有したい？',
+        a: 1
+      },
+      {
+        t: 'E',
+        q: '現場は友達と行くのが楽しい？',
+        a: 1
+      },
+      {
+        t: 'E',
+        q: 'SNSで感想を投稿することが多い？',
+        a: 1
+      },
+      {
+        t: 'E',
+        q: '同担と語るのが嬉しい？',
+        a: 1
+      },
+      {
+        t: 'E',
+        q: '推し活は交流のきっかけ？',
+        a: 1
+      },
+
+      {
+        t: 'D',
+        q: '現場は行けるなら全部行く？',
+        a: 1
+      },
+      {
+        t: 'D',
+        q: 'グッズは積極的に揃える？',
+        a: 1
+      },
+      {
+        t: 'D',
+        q: '記念日を必ずお祝いする？',
+        a: 1
+      },
+      {
+        t: 'D',
+        q: '推し活が生活の中心になることがある？',
+        a: 1
+      },
+      {
+        t: 'D',
+        q: '気持ちの温度は安定して高い？',
+        a: 1
+      },
+
+      {
+        t: 'S',
+        q: '基本は1人の推しを長く推す？',
+        a: 1
+      },
+      {
+        t: 'S',
+        q: '新しいジャンルには慎重？',
+        a: 1
+      },
+      {
+        t: 'S',
+        q: '沼の移動はあまりしない？',
+        a: 1
+      },
+      {
+        t: 'S',
+        q: '創作欲はあまり湧かない？',
+        a: 1
+      },
+      {
+        t: 'S',
+        q: '直感で好きになる頻度は低い？',
+        a: 1
+      }
+    ];
+
+    let idx = 0;
+    const state = {
+      R: 0,
+      E: 0,
+      D: 0,
+      S: 0
+    };
+
+    function appendBot(text) {
+      const d = document.createElement('div');
+      d.className = 'message bot';
+      d.textContent = text;
+      document.getElementById('chat').appendChild(d);
+    }
+
+    function appendUser(text) {
+      const d = document.createElement('div');
+      d.className = 'message user';
+      d.textContent = text;
+      document.getElementById('chat').appendChild(d);
+    }
+
+    function showQuestion() {
+      if (idx >= q.length) {
+        showResult();
+        return;
+      }
+      appendBot((idx + 1) + '. ' + q[idx].q);
+      const controls = document.createElement('div');
+      controls.className = 'controls';
+      const b1 = document.createElement('button');
+      b1.textContent = 'A';
+      b1.onclick = () => {
+        answer(1)
+      };
+      const b2 = document.createElement('button');
+      b2.textContent = 'B';
+      b2.onclick = () => {
+        answer(0)
+      };
+      controls.appendChild(b1);
+      controls.appendChild(b2);
+      document.getElementById('chat').appendChild(controls);
+    }
+
+    function answer(val) { // val 1=A(yes) 0=B(no)
+      const controls = document.querySelector('.controls');
+      if (controls) controls.remove();
+      appendUser(val ? 'A' : 'B');
+      // tally
+      const t = q[idx].t;
+      const a = q[idx].a; // a==1 means A maps to that trait
+      if (val === 1) {
+        state[t]++;
+      } // else do nothing (B is opposite)
+      idx++;
+      setTimeout(showQuestion, 300);
+    }
+
+    function showResult() { // decide each axis
+      const res = [];
+      res.push(state.R >= 3 ? 'R' : 'W'); // threshold simple
+      res.push(state.E >= 3 ? 'E' : 'I');
+      res.push(state.D >= 3 ? 'D' : 'L');
+      res.push(state.S >= 3 ? 'S' : 'V');
+      const type = res.join('');
+      appendBot('診断結果：' + type);
+      // short desc
+      const shortMap = {
+        'REDS': '永遠のガチ恋語り手',
+        'REDV': '恋多き情熱クリエイター',
+        'RELS': 'ゆるガチ恋ストーリーテラー',
+        'RELV': '気まぐれ恋心の発信者',
+        'RIDS': '静かに燃えるガチ恋',
+        'RIDV': '恋多き隠れ沼ダイバー',
+        'RILS': '静かに想うゆるガチ恋',
+        'RILV': '気まぐれ恋心コレクター',
+        'WEDS': '推しの布教長官',
+        'WEDV': '尊みのマルチ伝道師',
+        'WELS': 'ゆる尊み語り部',
+        'WELV': 'ゆる尊みコレクター',
+        'WIDS': '静かな忠誠心',
+        'WIDV': '静かなる多界隈ウォッチャー',
+        'WILS': 'マイペース見守り隊',
+        'WILV': '静かにいろいろ愛でる人'
+      };
+      appendBot('あなたのタイプは: ' + shortMap[type] + '（' + type + '）');
+      appendBot('もっと詳しい説明を見たい場合は、このHTMLをベースに結果ページを作成してください。');
+    }
+    // start
+    setTimeout(showQuestion, 700);
+  </script> </body> 
+
+</html>
