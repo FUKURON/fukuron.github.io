@@ -12,6 +12,7 @@ body {
   background: #fff;
   border-radius: 12px;
   padding: 12px;
+  opacity: 0;
 }
 
 .message {

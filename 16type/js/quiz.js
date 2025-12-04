@@ -169,7 +169,7 @@ function showResult() {
 }
 
 function initQuiz() {
-  setTimeout(showQuestion, 700);
+  showQuestion();
 }
 
 document.addEventListener('DOMContentLoaded', initQuiz);
