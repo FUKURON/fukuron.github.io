@@ -51,10 +51,22 @@ const answerLabels = [
 
 let currentIndex = 0;
 const scores = { R: 0, E: 0, D: 0, S: 0 };
+const introText = 'こんにちは！推し活診断へようこそ。6段階で答えてください。（全20問）';
 
-function clearChat() {
+function fadeOutChat(callback) {
   const chatElement = document.getElementById('chat');
-  chatElement.innerHTML = '';
+  chatElement.classList.add('fade-out');
+  chatElement.classList.remove('fade-in');
+  setTimeout(function() {
+    chatElement.innerHTML = '';
+    chatElement.classList.remove('fade-out');
+    callback();
+  }, 300);
+}
+
+function fadeInChat() {
+  const chatElement = document.getElementById('chat');
+  chatElement.classList.add('fade-in');
 }
 
 function showMessage(text) {
@@ -99,16 +111,31 @@ function createAnswerButtons() {
   chatElement.appendChild(controls);
 }
 
+function displayQuestion() {
+  const chatElement = document.getElementById('chat');
+  chatElement.innerHTML = '';
+  
+  if (currentIndex === 0) {
+    showMessage(introText);
+  }
+  
+  const question = questions[currentIndex];
+  showMessage((currentIndex + 1) + '/' + questions.length + ' ' + question.text);
+  createAnswerButtons();
+  fadeInChat();
+}
+
 function showQuestion() {
   if (currentIndex >= questions.length) {
     showResult();
     return;
   }
 
-  clearChat();
-  const question = questions[currentIndex];
-  showMessage((currentIndex + 1) + '/' + questions.length + ' ' + question.text);
-  createAnswerButtons();
+  if (currentIndex === 0) {
+    displayQuestion();
+  } else {
+    fadeOutChat(displayQuestion);
+  }
 }
 
 function handleAnswer(score) {
@@ -116,7 +143,7 @@ function handleAnswer(score) {
   scores[trait] += score;
 
   currentIndex++;
-  setTimeout(showQuestion, 300);
+  showQuestion();
 }
 
 function calculateType() {
@@ -128,11 +155,17 @@ function calculateType() {
   return r + e + d + s;
 }
 
-function showResult() {
-  clearChat();
+function displayResult() {
+  const chatElement = document.getElementById('chat');
+  chatElement.innerHTML = '';
   const type = calculateType();
   showMessage('診断結果');
   showMessage('あなたのタイプは: ' + typeDescriptions[type] + '（' + type + '）');
+  fadeInChat();
+}
+
+function showResult() {
+  fadeOutChat(displayResult);
 }
 
 function initQuiz() {
