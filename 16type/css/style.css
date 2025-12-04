@@ -14,19 +14,20 @@ body {
   width: 360px;
   background: #fff;
   border-radius: 12px;
-  padding: 12px;
+  padding: 30px 12px 30px 12px;
   opacity: 0;
 }
 
 .message {
-  padding: 10px 12px;
-  border-radius: 12px;
+  padding: 0px 0px;
+  border-radius: 0px;
   margin: 8px 0;
 }
 
 .bot {
-  background: #eee;
+  background: #fff;
   align-self: flex-start;
+  margin: 0 0 20px 0;
 }
 
 .user {
@@ -50,16 +51,16 @@ body {
 .label-row {
   display: flex;
   justify-content: space-between;
-  font-size: 12px;
+  font-size: 16px;
   padding: 0 4px;
 }
 
 .label-pink {
-  color: #ff69b4;
+  color: #F58CA8;
 }
 
 .label-cyan {
-  color: #5bc0de;
+  color: #7AC6D9;
 }
 
 button {
@@ -71,12 +72,12 @@ button {
 }
 
 button.btn-pink {
-  border: 3px solid #ff69b4;
+  border: 4px solid #F58CA8;
 }
 
 
 button.btn-cyan {
-  border: 3px solid #5bc0de;
+  border: 4px solid #7AC6D9;
 }
 
 
@@ -86,13 +87,13 @@ button.btn-large {
 }
 
 button.btn-medium {
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
 }
 
 button.btn-small {
-  width: 28px;
-  height: 28px;
+  width: 36px;
+  height: 36px;
 }
 
 .small {
@@ -101,17 +102,16 @@ button.btn-small {
 }
 
 .progress-card {
-  background: #9e9e9e;
-  color: #fff;
-  padding: 8px 12px;
-  border-radius: 8px;
-  margin-bottom: 8px;
+  background: #fff;
+  padding: 0 0;
+  border-radius: 0px;
+  margin: 0 0 20px 0;
   font-size: 14px;
   text-align: center;
 }
 
 .question-text {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
 }
 
