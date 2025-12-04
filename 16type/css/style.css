@@ -2,12 +2,14 @@ body {
   font-family: Arial, sans-serif;
   background: #f6f6f6;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   height: 100vh;
   height: 100dvh;
   margin: 0;
+  padding-top: 60px;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .chat {
@@ -102,18 +104,22 @@ button.btn-small {
 @keyframes fadeIn {
   from {
     opacity: 0;
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
+    transform: translateY(0);
   }
 }
 
 @keyframes fadeOut {
   from {
     opacity: 1;
+    transform: translateY(0);
   }
   to {
     opacity: 0;
+    transform: translateY(-20px);
   }
 }
 
