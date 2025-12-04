@@ -1,24 +1,24 @@
 const questions = [
-  { trait: 'R', text: '推しを見るとき、あなたは物語を妄想する？' },
-  { trait: 'R', text: '推しが恋愛したら少し複雑に感じる？' },
-  { trait: 'R', text: '推しへの感情の主語は「私（恋）」？' },
-  { trait: 'R', text: '推しの言動で動くのは心（感情）？' },
-  { trait: 'R', text: '推しを形容するなら「恋」？' },
-  { trait: 'E', text: '推し語りは共有したい？' },
-  { trait: 'E', text: '現場は友達と行くのが楽しい？' },
-  { trait: 'E', text: 'SNSで感想を投稿することが多い？' },
-  { trait: 'E', text: '同担と語るのが嬉しい？' },
-  { trait: 'E', text: '推し活は交流のきっかけ？' },
-  { trait: 'D', text: '現場は行けるなら全部行く？' },
-  { trait: 'D', text: 'グッズは積極的に揃える？' },
-  { trait: 'D', text: '記念日を必ずお祝いする？' },
-  { trait: 'D', text: '推し活が生活の中心になることがある？' },
-  { trait: 'D', text: '気持ちの温度は安定して高い？' },
-  { trait: 'S', text: '基本は1人の推しを長く推す？' },
-  { trait: 'S', text: '新しいジャンルには慎重？' },
-  { trait: 'S', text: '沼の移動はあまりしない？' },
-  { trait: 'S', text: '創作欲はあまり湧かない？' },
-  { trait: 'S', text: '直感で好きになる頻度は低い？' }
+  { trait: 'R', text: '推しへの気持ちは「恋をしている」感覚に近い。' },
+  { trait: 'R', text: '推しを見るとき、物語を妄想することが多い。' },
+  { trait: 'R', text: '推しが恋愛すると聞くと、複雑な気持ちになる。' },
+  { trait: 'R', text: '推しの言葉ひとつで、心や感情が大きく動く。' },
+  { trait: 'R', text: '自分にとって推しは「恋人」に近い存在だ。' },
+  { trait: 'E', text: '推しを語るときは、人と共有したいほうだ。' },
+  { trait: 'E', text: '現場は、友達と一緒に行くほうが楽しい。' },
+  { trait: 'E', text: '推しのことをSNSに投稿するほうだ。' },
+  { trait: 'E', text: '同担と推しについて語り合えると嬉しい。' },
+  { trait: 'E', text: '推し活は、人と交流するきっかけになっている。' },
+  { trait: 'D', text: '現場には、行けるなら全部行きたいと思う。' },
+  { trait: 'D', text: '推しのグッズは、積極的にあつめるほうだ。' },
+  { trait: 'D', text: '推しの記念日は、できるだけ毎回お祝いする。' },
+  { trait: 'D', text: '推し活が、生活の中心になる時期がある。' },
+  { trait: 'D', text: '推しへの熱量は、常に高いほうだ。' },
+  { trait: 'S', text: '基本的に、1人の推しを長く推すタイプだ。' },
+  { trait: 'S', text: '新しいジャンルには、どちらかというと慎重だ。' },
+  { trait: 'S', text: '推し変や沼の移動をすることはあまりない。' },
+  { trait: 'S', text: '推しで創作をしたい気持ちはあまり湧かない。' },
+  { trait: 'S', text: '直感で「この人が好き」となることは少ない。' }
 ];
 
 const typeDescriptions = {
@@ -51,7 +51,7 @@ const answerLabels = [
 
 let currentIndex = 0;
 const scores = { R: 0, E: 0, D: 0, S: 0 };
-const introText = 'こんにちは！推し活診断へようこそ。6段階で答えてください。（全20問）';
+const introText = '推し活タイプ診断へようこそ！自分の推し活タイプを突き止めるために、ありのままの自分で正直に回答してください（全20問）';
 
 function fadeOutChat(callback) {
   const chatElement = document.getElementById('chat');
@@ -82,16 +82,6 @@ function createAnswerButtons() {
   const controls = document.createElement('div');
   controls.className = 'controls';
 
-  const labelRow = document.createElement('div');
-  labelRow.className = 'label-row';
-  const labelLeft = document.createElement('span');
-  labelLeft.textContent = 'そう思う';
-  const labelRight = document.createElement('span');
-  labelRight.textContent = 'そう思わない';
-  labelRow.appendChild(labelLeft);
-  labelRow.appendChild(labelRight);
-  controls.appendChild(labelRow);
-
   const buttonRow = document.createElement('div');
   buttonRow.className = 'button-row';
   const scoreValues = [5, 4, 3, 2, 1, 0];
@@ -108,19 +98,50 @@ function createAnswerButtons() {
   });
 
   controls.appendChild(buttonRow);
+
+  const labelRow = document.createElement('div');
+  labelRow.className = 'label-row';
+  const labelLeft = document.createElement('span');
+  labelLeft.className = 'label-pink';
+  labelLeft.textContent = 'そう思う';
+  const labelRight = document.createElement('span');
+  labelRight.className = 'label-cyan';
+  labelRight.textContent = 'そう思わない';
+  labelRow.appendChild(labelLeft);
+  labelRow.appendChild(labelRight);
+  controls.appendChild(labelRow);
+
   chatElement.appendChild(controls);
+}
+
+function showProgressCard() {
+  const chatElement = document.getElementById('chat');
+  const progressDiv = document.createElement('div');
+  progressDiv.className = 'progress-card';
+  progressDiv.textContent = (currentIndex + 1) + '/' + questions.length;
+  chatElement.appendChild(progressDiv);
+}
+
+function showQuestionMessage(text) {
+  const chatElement = document.getElementById('chat');
+  const messageDiv = document.createElement('div');
+  messageDiv.className = 'message bot question-text';
+  messageDiv.textContent = text;
+  chatElement.appendChild(messageDiv);
 }
 
 function displayQuestion() {
   const chatElement = document.getElementById('chat');
   chatElement.innerHTML = '';
-  
+
   if (currentIndex === 0) {
     showMessage(introText);
   }
-  
+
+  showProgressCard();
+
   const question = questions[currentIndex];
-  showMessage((currentIndex + 1) + '/' + questions.length + ' ' + question.text);
+  showQuestionMessage(question.text);
   createAnswerButtons();
   fadeInChat();
 }
