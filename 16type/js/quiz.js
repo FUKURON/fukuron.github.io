@@ -52,10 +52,15 @@ const answerLabels = [
 let currentIndex = 0;
 const scores = { R: 0, E: 0, D: 0, S: 0 };
 
-function appendMessage(text, isUser) {
+function clearChat() {
+  const chatElement = document.getElementById('chat');
+  chatElement.innerHTML = '';
+}
+
+function showMessage(text) {
   const chatElement = document.getElementById('chat');
   const messageDiv = document.createElement('div');
-  messageDiv.className = 'message ' + (isUser ? 'user' : 'bot');
+  messageDiv.className = 'message bot';
   messageDiv.textContent = text;
   chatElement.appendChild(messageDiv);
 }
@@ -100,19 +105,13 @@ function showQuestion() {
     return;
   }
 
+  clearChat();
   const question = questions[currentIndex];
-  appendMessage((currentIndex + 1) + '. ' + question.text, false);
+  showMessage((currentIndex + 1) + '/' + questions.length + ' ' + question.text);
   createAnswerButtons();
 }
 
 function handleAnswer(score) {
-  const controls = document.querySelector('.controls');
-  if (controls) {
-    controls.remove();
-  }
-
-  appendMessage(answerLabels[5 - score], true);
-
   const trait = questions[currentIndex].trait;
   scores[trait] += score;
 
@@ -130,10 +129,10 @@ function calculateType() {
 }
 
 function showResult() {
+  clearChat();
   const type = calculateType();
-  appendMessage('診断結果：' + type, false);
-  appendMessage('あなたのタイプは: ' + typeDescriptions[type] + '（' + type + '）', false);
-  appendMessage('もっと詳しい説明を見たい場合は、このHTMLをベースに結果ページを作成してください。', false);
+  showMessage('診断結果');
+  showMessage('あなたのタイプは: ' + typeDescriptions[type] + '（' + type + '）');
 }
 
 function initQuiz() {
