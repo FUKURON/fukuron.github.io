@@ -82,16 +82,6 @@ function createAnswerButtons() {
   const controls = document.createElement('div');
   controls.className = 'controls';
 
-  const labelRow = document.createElement('div');
-  labelRow.className = 'label-row';
-  const labelLeft = document.createElement('span');
-  labelLeft.textContent = 'そう思う';
-  const labelRight = document.createElement('span');
-  labelRight.textContent = 'そう思わない';
-  labelRow.appendChild(labelLeft);
-  labelRow.appendChild(labelRight);
-  controls.appendChild(labelRow);
-
   const buttonRow = document.createElement('div');
   buttonRow.className = 'button-row';
   const scoreValues = [5, 4, 3, 2, 1, 0];
@@ -108,7 +98,36 @@ function createAnswerButtons() {
   });
 
   controls.appendChild(buttonRow);
+
+  const labelRow = document.createElement('div');
+  labelRow.className = 'label-row';
+  const labelLeft = document.createElement('span');
+  labelLeft.className = 'label-pink';
+  labelLeft.textContent = 'そう思う';
+  const labelRight = document.createElement('span');
+  labelRight.className = 'label-cyan';
+  labelRight.textContent = 'そう思わない';
+  labelRow.appendChild(labelLeft);
+  labelRow.appendChild(labelRight);
+  controls.appendChild(labelRow);
+
   chatElement.appendChild(controls);
+}
+
+function showProgressCard() {
+  const chatElement = document.getElementById('chat');
+  const progressDiv = document.createElement('div');
+  progressDiv.className = 'progress-card';
+  progressDiv.textContent = (currentIndex + 1) + '/' + questions.length;
+  chatElement.appendChild(progressDiv);
+}
+
+function showQuestionMessage(text) {
+  const chatElement = document.getElementById('chat');
+  const messageDiv = document.createElement('div');
+  messageDiv.className = 'message bot question-text';
+  messageDiv.textContent = text;
+  chatElement.appendChild(messageDiv);
 }
 
 function displayQuestion() {
@@ -119,8 +138,10 @@ function displayQuestion() {
     showMessage(introText);
   }
   
+  showProgressCard();
+  
   const question = questions[currentIndex];
-  showMessage((currentIndex + 1) + '/' + questions.length + ' ' + question.text);
+  showQuestionMessage(question.text);
   createAnswerButtons();
   fadeInChat();
 }
