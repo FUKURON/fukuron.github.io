@@ -201,7 +201,6 @@ function createScoreBar(score, maxScore, leftLabel, rightLabel, leftColor, right
   const barFill = document.createElement('div');
   barFill.className = 'score-bar-fill';
   barFill.style.width = percentage + '%';
-  barFill.style.backgroundColor = isLeft ? leftColor : rightColor;
   barContainer.appendChild(barFill);
 
   const scoreText = document.createElement('div');

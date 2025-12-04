@@ -169,14 +169,13 @@ button.btn-small {
 
 .score-bar-container {
   height: 8px;
-  background: #e0e0e0;
-  border-radius: 4px;
+  background: #7AC6D9;
   overflow: hidden;
 }
 
 .score-bar-fill {
   height: 100%;
-  border-radius: 4px;
+  background: #F58CA8;
   transition: width 0.5s ease-out;
 }
 
