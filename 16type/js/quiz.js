@@ -289,7 +289,7 @@ function calculateType() {
   return r + e + d + s;
 }
 
-function createScoreBar(score, maxScore, leftLabel, rightLabel, leftColor, rightColor) {
+function createScoreBar(score, maxScore, leftLabel, rightLabel) {
   // スコアは-maxScore〜+maxScoreの範囲、0が中央
   // パーセンテージは0〜100%で、50%が中央（スコア0）
   const percentage = ((score + maxScore) / (maxScore * 2)) * 100;
@@ -302,29 +302,22 @@ function createScoreBar(score, maxScore, leftLabel, rightLabel, leftColor, right
   labels.className = 'score-labels text-sm';
   const leftSpan = document.createElement('span');
   leftSpan.textContent = leftLabel;
-  leftSpan.style.color = leftColor;
   if (isLeft) leftSpan.style.fontWeight = 'bold';
   const rightSpan = document.createElement('span');
   rightSpan.textContent = rightLabel;
-  rightSpan.style.color = rightColor;
   if (!isLeft) rightSpan.style.fontWeight = 'bold';
   labels.appendChild(leftSpan);
   labels.appendChild(rightSpan);
 
   const barContainer = document.createElement('div');
   barContainer.className = 'score-bar-container';
-  const barFill = document.createElement('div');
-  barFill.className = 'score-bar-fill';
-  barFill.style.width = percentage + '%';
-  barContainer.appendChild(barFill);
-
-  const scoreText = document.createElement('div');
-  scoreText.className = 'score-text text-sm';
-  scoreText.textContent = score;
+  const dot = document.createElement('div');
+  dot.className = 'score-dot';
+  dot.style.left = percentage + '%';
+  barContainer.appendChild(dot);
 
   container.appendChild(labels);
   container.appendChild(barContainer);
-  container.appendChild(scoreText);
 
   return container;
 }
@@ -407,10 +400,10 @@ function displayResult() {
   scoreTitle.textContent = 'スコア詳細';
   scoreSection.appendChild(scoreTitle);
 
-  scoreSection.appendChild(createScoreBar(scores.RW, maxScore, 'ガチ恋 (R)', '尊み (W)', '#F58CA8', '#7AC6D9'));
-  scoreSection.appendChild(createScoreBar(scores.EI, maxScore, '語りたい (E)', '1人で楽しむ (I)', '#F58CA8', '#7AC6D9'));
-  scoreSection.appendChild(createScoreBar(scores.DL, maxScore, '献身的 (D)', 'ゆる (L)', '#F58CA8', '#7AC6D9'));
-  scoreSection.appendChild(createScoreBar(scores.SV, maxScore, '一途 (S)', '多様 (V)', '#F58CA8', '#7AC6D9'));
+  scoreSection.appendChild(createScoreBar(scores.RW, maxScore, 'ガチ恋 (R)', '尊み (W)'));
+  scoreSection.appendChild(createScoreBar(scores.EI, maxScore, '語りたい (E)', '1人で楽しむ (I)'));
+  scoreSection.appendChild(createScoreBar(scores.DL, maxScore, '献身的 (D)', 'ゆる (L)'));
+  scoreSection.appendChild(createScoreBar(scores.SV, maxScore, '一途 (S)', '多様 (V)'));
 
   chatElement.appendChild(scoreSection);
   fadeInChat();
