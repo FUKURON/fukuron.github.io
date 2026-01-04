@@ -27,23 +27,120 @@ const questions = [
   { axis: 'SV', dir: -1, text: '推し変やジャンルの移動に抵抗がない。' }
 ];
 
-const typeDescriptions = {
-  'REDS': '永遠のガチ恋語り手',
-  'REDV': '恋多き情熱クリエイター',
-  'RELS': 'ゆるガチ恋ストーリーテラー',
-  'RELV': '気まぐれ恋心の発信者',
-  'RIDS': '静かに燃えるガチ恋',
-  'RIDV': '恋多き隠れ沼ダイバー',
-  'RILS': '静かに想うゆるガチ恋',
-  'RILV': '気まぐれ恋心コレクター',
-  'WEDS': '推しの布教長官',
-  'WEDV': '尊みのマルチ伝道師',
-  'WELS': 'ゆる尊み語り部',
-  'WELV': 'ゆる尊みコレクター',
-  'WIDS': '静かな忠誠心',
-  'WIDV': '静かなる多界隈ウォッチャー',
-  'WILS': 'マイペース見守り隊',
-  'WILV': '静かにいろいろ愛でる人'
+// 16タイプのデータ（画像・テキストは後から差し替え可能）
+const typeData = {
+  'REDS': {
+    name: '永遠のガチ恋語り手',
+    image: 'images/types/REDS.png',
+    personality: '推しの幸せは私の幸せ。現場も記念日も全力、推しへの愛が日々のエネルギー源。周囲を明るく照らす力を持っています。',
+    enjoyment: '記念日を祝う、ポジティブな言葉で布教、仲間との積極的な交流。',
+    advice: '一人で抱え込まず、同じ熱量の仲間と語り合うことで心の平穏を保って。'
+  },
+  'REDV': {
+    name: '恋多き情熱クリエイター',
+    image: 'images/types/REDV.png',
+    personality: 'ダミーの性格テキストです。後から差し替えてください。',
+    enjoyment: 'ダミーの楽しみ方テキストです。後から差し替えてください。',
+    advice: 'ダミーの悩みへの向き合い方テキストです。後から差し替えてください。'
+  },
+  'RELS': {
+    name: 'ゆるガチ恋ストーリーテラー',
+    image: 'images/types/RELS.png',
+    personality: 'ダミーの性格テキストです。後から差し替えてください。',
+    enjoyment: 'ダミーの楽しみ方テキストです。後から差し替えてください。',
+    advice: 'ダミーの悩みへの向き合い方テキストです。後から差し替えてください。'
+  },
+  'RELV': {
+    name: '気まぐれ恋心の発信者',
+    image: 'images/types/RELV.png',
+    personality: 'ダミーの性格テキストです。後から差し替えてください。',
+    enjoyment: 'ダミーの楽しみ方テキストです。後から差し替えてください。',
+    advice: 'ダミーの悩みへの向き合い方テキストです。後から差し替えてください。'
+  },
+  'RIDS': {
+    name: '静かに燃えるガチ恋',
+    image: 'images/types/RIDS.png',
+    personality: 'ダミーの性格テキストです。後から差し替えてください。',
+    enjoyment: 'ダミーの楽しみ方テキストです。後から差し替えてください。',
+    advice: 'ダミーの悩みへの向き合い方テキストです。後から差し替えてください。'
+  },
+  'RIDV': {
+    name: '恋多き隠れ沼ダイバー',
+    image: 'images/types/RIDV.png',
+    personality: 'ダミーの性格テキストです。後から差し替えてください。',
+    enjoyment: 'ダミーの楽しみ方テキストです。後から差し替えてください。',
+    advice: 'ダミーの悩みへの向き合い方テキストです。後から差し替えてください。'
+  },
+  'RILS': {
+    name: '静かに想うゆるガチ恋',
+    image: 'images/types/RILS.png',
+    personality: 'ダミーの性格テキストです。後から差し替えてください。',
+    enjoyment: 'ダミーの楽しみ方テキストです。後から差し替えてください。',
+    advice: 'ダミーの悩みへの向き合い方テキストです。後から差し替えてください。'
+  },
+  'RILV': {
+    name: '気まぐれ恋心コレクター',
+    image: 'images/types/RILV.png',
+    personality: 'ダミーの性格テキストです。後から差し替えてください。',
+    enjoyment: 'ダミーの楽しみ方テキストです。後から差し替えてください。',
+    advice: 'ダミーの悩みへの向き合い方テキストです。後から差し替えてください。'
+  },
+  'WEDS': {
+    name: '推しの布教長官',
+    image: 'images/types/WEDS.png',
+    personality: 'ダミーの性格テキストです。後から差し替えてください。',
+    enjoyment: 'ダミーの楽しみ方テキストです。後から差し替えてください。',
+    advice: 'ダミーの悩みへの向き合い方テキストです。後から差し替えてください。'
+  },
+  'WEDV': {
+    name: '尊みのマルチ伝道師',
+    image: 'images/types/WEDV.png',
+    personality: 'ダミーの性格テキストです。後から差し替えてください。',
+    enjoyment: 'ダミーの楽しみ方テキストです。後から差し替えてください。',
+    advice: 'ダミーの悩みへの向き合い方テキストです。後から差し替えてください。'
+  },
+  'WELS': {
+    name: 'ゆる尊み語り部',
+    image: 'images/types/WELS.png',
+    personality: 'ダミーの性格テキストです。後から差し替えてください。',
+    enjoyment: 'ダミーの楽しみ方テキストです。後から差し替えてください。',
+    advice: 'ダミーの悩みへの向き合い方テキストです。後から差し替えてください。'
+  },
+  'WELV': {
+    name: 'ゆる尊みコレクター',
+    image: 'images/types/WELV.png',
+    personality: 'ダミーの性格テキストです。後から差し替えてください。',
+    enjoyment: 'ダミーの楽しみ方テキストです。後から差し替えてください。',
+    advice: 'ダミーの悩みへの向き合い方テキストです。後から差し替えてください。'
+  },
+  'WIDS': {
+    name: '静かな忠誠心',
+    image: 'images/types/WIDS.png',
+    personality: 'ダミーの性格テキストです。後から差し替えてください。',
+    enjoyment: 'ダミーの楽しみ方テキストです。後から差し替えてください。',
+    advice: 'ダミーの悩みへの向き合い方テキストです。後から差し替えてください。'
+  },
+  'WIDV': {
+    name: '静かなる多界隈ウォッチャー',
+    image: 'images/types/WIDV.png',
+    personality: 'ダミーの性格テキストです。後から差し替えてください。',
+    enjoyment: 'ダミーの楽しみ方テキストです。後から差し替えてください。',
+    advice: 'ダミーの悩みへの向き合い方テキストです。後から差し替えてください。'
+  },
+  'WILS': {
+    name: 'マイペース見守り隊',
+    image: 'images/types/WILS.png',
+    personality: 'ダミーの性格テキストです。後から差し替えてください。',
+    enjoyment: 'ダミーの楽しみ方テキストです。後から差し替えてください。',
+    advice: 'ダミーの悩みへの向き合い方テキストです。後から差し替えてください。'
+  },
+  'WILV': {
+    name: '静かにいろいろ愛でる人',
+    image: 'images/types/WILV.png',
+    personality: 'ダミーの性格テキストです。後から差し替えてください。',
+    enjoyment: 'ダミーの楽しみ方テキストです。後から差し替えてください。',
+    advice: 'ダミーの悩みへの向き合い方テキストです。後から差し替えてください。'
+  }
 };
 
 const answerLabels = [
@@ -236,12 +333,76 @@ function displayResult() {
   const chatElement = document.getElementById('chat');
   chatElement.innerHTML = '';
   const type = calculateType();
+  const data = typeData[type];
   // 各軸4問 × 最大スコア2 = 8が最大値
   const maxScore = 8;
 
-  showMessage('診断結果');
-  showMessage('あなたのタイプは: ' + typeDescriptions[type] + '（' + type + '）');
+  // 診断結果の見出し
+  const resultTitle = document.createElement('div');
+  resultTitle.className = 'result-title';
+  resultTitle.textContent = 'あなたのタイプは…';
+  chatElement.appendChild(resultTitle);
 
+  // タイプ名（大きく）と英字4文字（小さく）
+  const typeHeader = document.createElement('div');
+  typeHeader.className = 'type-header';
+  const typeName = document.createElement('div');
+  typeName.className = 'type-name';
+  typeName.textContent = data.name;
+  const typeCode = document.createElement('div');
+  typeCode.className = 'type-code';
+  typeCode.textContent = type;
+  typeHeader.appendChild(typeName);
+  typeHeader.appendChild(typeCode);
+  chatElement.appendChild(typeHeader);
+
+  // イメージ画像
+  const typeImage = document.createElement('img');
+  typeImage.className = 'type-image';
+  typeImage.src = data.image;
+  typeImage.alt = data.name;
+  chatElement.appendChild(typeImage);
+
+  // 性格
+  const personalitySection = document.createElement('div');
+  personalitySection.className = 'result-section';
+  const personalityTitle = document.createElement('div');
+  personalityTitle.className = 'section-title';
+  personalityTitle.textContent = '性格';
+  const personalityText = document.createElement('div');
+  personalityText.className = 'section-text';
+  personalityText.textContent = data.personality;
+  personalitySection.appendChild(personalityTitle);
+  personalitySection.appendChild(personalityText);
+  chatElement.appendChild(personalitySection);
+
+  // 楽しみ方
+  const enjoymentSection = document.createElement('div');
+  enjoymentSection.className = 'result-section';
+  const enjoymentTitle = document.createElement('div');
+  enjoymentTitle.className = 'section-title';
+  enjoymentTitle.textContent = '楽しみ方';
+  const enjoymentText = document.createElement('div');
+  enjoymentText.className = 'section-text';
+  enjoymentText.textContent = data.enjoyment;
+  enjoymentSection.appendChild(enjoymentTitle);
+  enjoymentSection.appendChild(enjoymentText);
+  chatElement.appendChild(enjoymentSection);
+
+  // 悩みへの向き合い方
+  const adviceSection = document.createElement('div');
+  adviceSection.className = 'result-section';
+  const adviceTitle = document.createElement('div');
+  adviceTitle.className = 'section-title';
+  adviceTitle.textContent = '悩みへの向き合い方';
+  const adviceText = document.createElement('div');
+  adviceText.className = 'section-text';
+  adviceText.textContent = data.advice;
+  adviceSection.appendChild(adviceTitle);
+  adviceSection.appendChild(adviceText);
+  chatElement.appendChild(adviceSection);
+
+  // スコア詳細（現状維持）
   const scoreSection = document.createElement('div');
   scoreSection.className = 'score-section';
 
