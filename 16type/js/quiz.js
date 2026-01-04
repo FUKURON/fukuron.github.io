@@ -291,8 +291,9 @@ function calculateType() {
 
 function createScoreBar(score, maxScore, leftLabel, rightLabel) {
   // スコアは-maxScore〜+maxScoreの範囲、0が中央
-  // パーセンテージは0〜100%で、50%が中央（スコア0）
-  const percentage = ((score + maxScore) / (maxScore * 2)) * 100;
+  // パーセンテージは0〜100%で、0%が左端（正のスコア）、100%が右端（負のスコア）
+  // 正のスコア（左側の特性）は左に、負のスコア（右側の特性）は右に表示
+  const percentage = ((-score + maxScore) / (maxScore * 2)) * 100;
   const isLeft = score >= 0;
 
   const container = document.createElement('div');
