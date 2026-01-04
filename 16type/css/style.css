@@ -189,7 +189,7 @@ button.btn-small {
   position: relative;
   height: 2px;
   background: #AAAAAA;
-  margin: 8px 0;
+  margin: 16px 0 24px 0;
 }
 
 .score-dot {
