@@ -294,7 +294,6 @@ function createScoreBar(score, maxScore, leftLabel, rightLabel) {
   // パーセンテージは0〜100%で、0%が左端（正のスコア）、100%が右端（負のスコア）
   // 正のスコア（左側の特性）は左に、負のスコア（右側の特性）は右に表示
   const percentage = ((-score + maxScore) / (maxScore * 2)) * 100;
-  const isLeft = score >= 0;
 
   const container = document.createElement('div');
   container.className = 'score-item';
@@ -303,10 +302,8 @@ function createScoreBar(score, maxScore, leftLabel, rightLabel) {
   labels.className = 'score-labels text-sm';
   const leftSpan = document.createElement('span');
   leftSpan.textContent = leftLabel;
-  if (isLeft) leftSpan.style.fontWeight = 'bold';
   const rightSpan = document.createElement('span');
   rightSpan.textContent = rightLabel;
-  if (!isLeft) rightSpan.style.fontWeight = 'bold';
   labels.appendChild(leftSpan);
   labels.appendChild(rightSpan);
 
