@@ -363,16 +363,12 @@ function displayResult() {
   typeImage.alt = data.name;
   chatElement.appendChild(typeImage);
 
-  // 性格
+  // 性格（見出しなし）
   const personalitySection = document.createElement('div');
   personalitySection.className = 'result-section';
-  const personalityTitle = document.createElement('div');
-  personalityTitle.className = 'section-title text-sm';
-  personalityTitle.textContent = '性格';
   const personalityText = document.createElement('div');
   personalityText.className = 'section-text text-sm';
   personalityText.textContent = data.personality;
-  personalitySection.appendChild(personalityTitle);
   personalitySection.appendChild(personalityText);
   chatElement.appendChild(personalitySection);
 
