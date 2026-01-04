@@ -70,11 +70,11 @@ body {
 }
 
 .label-pink {
-  color: #F58CA8;
+  color: #7D5A96;
 }
 
 .label-cyan {
-  color: #7AC6D9;
+  color: #7D5A96;
 }
 
 button {
@@ -85,15 +85,15 @@ button {
 }
 
 button.btn-pink {
-  border: 3px solid #F58CA8;
+  border: 3px solid #7D5A96;
 }
 
 button.btn-cyan {
-  border: 3px solid #7AC6D9;
+  border: 3px solid #7D5A96;
 }
 
 button.btn-neutral {
-  border: 3px solid #AAAAAA;
+  border: 3px solid #7D5A96;
 }
 
 button.btn-large {
