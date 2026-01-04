@@ -1,8 +1,16 @@
 /* シンプル・フラットなデザイン（スマホ最適化） */
 
+:root {
+  --yumekawa-pink: #FFC4E1;
+  --yumekawa-purple: #E2C1FF;
+  --yumekawa-blue: #C1E8FF;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  background: #f6f6f6;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  background: linear-gradient(135deg, var(--yumekawa-pink), var(--yumekawa-purple), var(--yumekawa-blue));
+  background-attachment: fixed;
+  color: #7D5A96;
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -15,7 +23,6 @@ body {
 .chat {
   width: 100%;
   max-width: 400px;
-  background: #fff;
   padding: 24px 16px;
   opacity: 0;
 }
@@ -26,7 +33,6 @@ body {
 }
 
 .bot {
-  background: #fff;
   align-self: flex-start;
   margin: 0 0 16px 0;
 }
@@ -104,7 +110,6 @@ button.btn-small {
 }
 
 .progress-card {
-  background: #fff;
   padding: 0;
   margin: 0 0 16px 0;
   font-size: 14px;
