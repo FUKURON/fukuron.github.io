@@ -1,24 +1,30 @@
+// 1) 質問（16問 / 各軸4問）
+// axis: 'RW'|'EI'|'DL'|'SV'
+// dir: +1 = 左側（R/E/D/S）向きの文, -1 = 右側（W/I/L/V）向きの文（逆向き）
 const questions = [
-  { trait: 'R', text: '推しへの気持ちは「恋をしている」感覚に近い。' },
-  { trait: 'R', text: '推しを見るとき、物語を妄想することが多い。' },
-  { trait: 'R', text: '推しが恋愛すると聞くと、複雑な気持ちになる。' },
-  { trait: 'R', text: '推しの言葉ひとつで、心や感情が大きく動く。' },
-  { trait: 'R', text: '自分にとって推しは「恋人」に近い存在だ。' },
-  { trait: 'E', text: '推しを語るときは、人と共有したいほうだ。' },
-  { trait: 'E', text: '現場は、友達と一緒に行くほうが楽しい。' },
-  { trait: 'E', text: '推しのことをSNSに投稿するほうだ。' },
-  { trait: 'E', text: '同担と推しについて語り合えると嬉しい。' },
-  { trait: 'E', text: '推し活は、人と交流するきっかけになっている。' },
-  { trait: 'D', text: '現場には、行けるなら全部行きたいと思う。' },
-  { trait: 'D', text: '推しのグッズは、積極的にあつめるほうだ。' },
-  { trait: 'D', text: '推しの記念日は、できるだけ毎回お祝いする。' },
-  { trait: 'D', text: '推し活が、生活の中心になる時期がある。' },
-  { trait: 'D', text: '推しへの熱量は、常に高いほうだ。' },
-  { trait: 'S', text: '基本的に、1人の推しを長く推すタイプだ。' },
-  { trait: 'S', text: '新しいジャンルには、どちらかというと慎重だ。' },
-  { trait: 'S', text: '推し変や沼の移動をすることはあまりない。' },
-  { trait: 'S', text: '推しで創作をしたい気持ちはあまり湧かない。' },
-  { trait: 'S', text: '直感で「この人が好き」となることは少ない。' }
+  // RW
+  { axis: 'RW', dir: +1, text: '推しへの気持ちは「恋をしている」感覚に近い。' },
+  { axis: 'RW', dir: +1, text: '推しと自分の「もしも」の関係性を想像する。' },
+  { axis: 'RW', dir: -1, text: '推しに自分の存在を認知されたくない。' },
+  { axis: 'RW', dir: -1, text: '自分の気持ちより、推しの幸せや成功が大事。' },
+
+  // EI
+  { axis: 'EI', dir: +1, text: '推しの良さを誰かに伝えたり共有したい。' },
+  { axis: 'EI', dir: +1, text: '推し活で仲間とつながることにワクワクする。' },
+  { axis: 'EI', dir: -1, text: '推し活は基本ひとりでするほうが落ち着く。' },
+  { axis: 'EI', dir: -1, text: '発信よりも自分の中で深く楽しむ時間が大切。' },
+
+  // DL
+  { axis: 'DL', dir: +1, text: '生活のリズムに推し活が組み込まれている。' },
+  { axis: 'DL', dir: +1, text: '推しを「追いたい」気持ちが継続的にある。' },
+  { axis: 'DL', dir: -1, text: '忙しいときは、推し活の優先度を下げられる。' },
+  { axis: 'DL', dir: -1, text: '推し活は無理のない範囲で楽しみたい。' },
+
+  // SV
+  { axis: 'SV', dir: +1, text: '基本的に1人の推しを長く推すほうだ。' },
+  { axis: 'SV', dir: +1, text: '新しいものにはどちらかというと慎重だ。' },
+  { axis: 'SV', dir: -1, text: '気になるものは複数同時に推せる。' },
+  { axis: 'SV', dir: -1, text: '推し変やジャンルの移動に抵抗がない。' }
 ];
 
 const typeDescriptions = {
@@ -49,8 +55,9 @@ const answerLabels = [
 ];
 
 let currentIndex = 0;
-const scores = { R: 0, E: 0, D: 0, S: 0 };
-const introText = '推し活タイプ診断へようこそ！自分の推し活タイプを突き止めるために、ありのままの自分で正直に回答してください（全20問）';
+// 軸ごとのスコア（-2〜+2の範囲で加算、正なら左側、負なら右側）
+const scores = { RW: 0, EI: 0, DL: 0, SV: 0 };
+const introText = '推し活タイプ診断へようこそ！自分の推し活タイプを突き止めるために、ありのままの自分で正直に回答してください（全16問）';
 
 function fadeOutChat(callback) {
   const chatElement = document.getElementById('chat');
@@ -83,7 +90,8 @@ function createAnswerButtons() {
 
   const buttonRow = document.createElement('div');
   buttonRow.className = 'button-row';
-  const scoreValues = [4, 3, 2, 1, 0];
+  // 5段階ボタン: +2, +1, 0, -1, -2
+  const scoreValues = [2, 1, 0, -1, -2];
   const sizeClasses = ['btn-large', 'btn-medium', 'btn-small', 'btn-medium', 'btn-large'];
 
   scoreValues.forEach((score, index) => {
@@ -166,25 +174,29 @@ function showQuestion() {
 }
 
 function handleAnswer(score) {
-  const trait = questions[currentIndex].trait;
-  scores[trait] += score;
+  const question = questions[currentIndex];
+  // dir: +1なら「そう思う」が左側（R/E/D/S）向き、-1なら逆向き
+  // スコアにdir を掛けることで、常に左側が正、右側が負になる
+  scores[question.axis] += score * question.dir;
 
   currentIndex++;
   showQuestion();
 }
 
 function calculateType() {
-  const threshold = 10;
-  const r = scores.R >= threshold ? 'R' : 'W';
-  const e = scores.E >= threshold ? 'E' : 'I';
-  const d = scores.D >= threshold ? 'D' : 'L';
-  const s = scores.S >= threshold ? 'S' : 'V';
+  // スコアが0以上なら左側（R/E/D/S）、マイナスなら右側（W/I/L/V）
+  const r = scores.RW >= 0 ? 'R' : 'W';
+  const e = scores.EI >= 0 ? 'E' : 'I';
+  const d = scores.DL >= 0 ? 'D' : 'L';
+  const s = scores.SV >= 0 ? 'S' : 'V';
   return r + e + d + s;
 }
 
 function createScoreBar(score, maxScore, leftLabel, rightLabel, leftColor, rightColor) {
-  const percentage = (score / maxScore) * 100;
-  const isLeft = percentage >= 50;
+  // スコアは-maxScore〜+maxScoreの範囲、0が中央
+  // パーセンテージは0〜100%で、50%が中央（スコア0）
+  const percentage = ((score + maxScore) / (maxScore * 2)) * 100;
+  const isLeft = score >= 0;
 
   const container = document.createElement('div');
   container.className = 'score-item';
@@ -211,7 +223,7 @@ function createScoreBar(score, maxScore, leftLabel, rightLabel, leftColor, right
 
   const scoreText = document.createElement('div');
   scoreText.className = 'score-text';
-  scoreText.textContent = score + ' / ' + maxScore;
+  scoreText.textContent = score;
 
   container.appendChild(labels);
   container.appendChild(barContainer);
@@ -224,7 +236,8 @@ function displayResult() {
   const chatElement = document.getElementById('chat');
   chatElement.innerHTML = '';
   const type = calculateType();
-  const maxScore = 20;
+  // 各軸4問 × 最大スコア2 = 8が最大値
+  const maxScore = 8;
 
   showMessage('診断結果');
   showMessage('あなたのタイプは: ' + typeDescriptions[type] + '（' + type + '）');
@@ -237,10 +250,10 @@ function displayResult() {
   scoreTitle.textContent = 'スコア詳細';
   scoreSection.appendChild(scoreTitle);
 
-  scoreSection.appendChild(createScoreBar(scores.R, maxScore, 'ガチ恋 (R)', '尊み (W)', '#F58CA8', '#7AC6D9'));
-  scoreSection.appendChild(createScoreBar(scores.E, maxScore, '語りたい (E)', '1人で楽しむ (I)', '#F58CA8', '#7AC6D9'));
-  scoreSection.appendChild(createScoreBar(scores.D, maxScore, '献身的 (D)', 'ゆる (L)', '#F58CA8', '#7AC6D9'));
-  scoreSection.appendChild(createScoreBar(scores.S, maxScore, '一途 (S)', '多様 (V)', '#F58CA8', '#7AC6D9'));
+  scoreSection.appendChild(createScoreBar(scores.RW, maxScore, 'ガチ恋 (R)', '尊み (W)', '#F58CA8', '#7AC6D9'));
+  scoreSection.appendChild(createScoreBar(scores.EI, maxScore, '語りたい (E)', '1人で楽しむ (I)', '#F58CA8', '#7AC6D9'));
+  scoreSection.appendChild(createScoreBar(scores.DL, maxScore, '献身的 (D)', 'ゆる (L)', '#F58CA8', '#7AC6D9'));
+  scoreSection.appendChild(createScoreBar(scores.SV, maxScore, '一途 (S)', '多様 (V)', '#F58CA8', '#7AC6D9'));
 
   chatElement.appendChild(scoreSection);
   fadeInChat();
