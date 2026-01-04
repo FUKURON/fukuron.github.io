@@ -398,10 +398,10 @@ function displayResult() {
   scoreTitle.textContent = 'スコア詳細';
   scoreSection.appendChild(scoreTitle);
 
-  scoreSection.appendChild(createScoreBar(scores.RW, maxScore, 'ガチ恋 (R)', '尊み (W)'));
-  scoreSection.appendChild(createScoreBar(scores.EI, maxScore, '語りたい (E)', '1人で楽しむ (I)'));
-  scoreSection.appendChild(createScoreBar(scores.DL, maxScore, '献身的 (D)', 'ゆる (L)'));
-  scoreSection.appendChild(createScoreBar(scores.SV, maxScore, '一途 (S)', '多様 (V)'));
+  scoreSection.appendChild(createScoreBar(scores.RW, maxScore, '(R) ガチ恋', '尊み (W)'));
+  scoreSection.appendChild(createScoreBar(scores.EI, maxScore, '(E) みんなで', 'ひとりで (I)'));
+  scoreSection.appendChild(createScoreBar(scores.DL, maxScore, '(D) 本気', 'ゆる (L)'));
+  scoreSection.appendChild(createScoreBar(scores.SV, maxScore, '(S) 一途', '多様 (V)'));
 
   chatElement.appendChild(scoreSection);
   fadeInChat();
