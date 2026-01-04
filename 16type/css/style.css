@@ -16,15 +16,22 @@ body {
   justify-content: center;
   min-height: 100vh;
   margin: 0;
-  padding: 16px;
+  padding: 24px 16px;
   box-sizing: border-box;
 }
 
+/* グラスモーフィズム */
 .chat {
   width: 100%;
   max-width: 400px;
   padding: 24px 16px;
   opacity: 0;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 40px;
+  box-shadow: 0 10px 40px rgba(183, 153, 255, 0.15);
 }
 
 .message {
