@@ -156,7 +156,7 @@ body {
 .score-bar-container {
   position: relative;
   height: 2px;
-  background: #AAAAAA;
+  background: rgba(125, 90, 150, 0.5);
   margin: 16px 0 24px 0;
 }
 
