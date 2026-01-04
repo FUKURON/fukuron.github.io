@@ -367,7 +367,7 @@ function displayResult() {
   const personalitySection = document.createElement('div');
   personalitySection.className = 'result-section';
   const personalityTitle = document.createElement('div');
-  personalityTitle.className = 'section-title text-md';
+  personalityTitle.className = 'section-title text-sm';
   personalityTitle.textContent = '性格';
   const personalityText = document.createElement('div');
   personalityText.className = 'section-text text-sm';
@@ -380,7 +380,7 @@ function displayResult() {
   const enjoymentSection = document.createElement('div');
   enjoymentSection.className = 'result-section';
   const enjoymentTitle = document.createElement('div');
-  enjoymentTitle.className = 'section-title text-md';
+  enjoymentTitle.className = 'section-title text-sm';
   enjoymentTitle.textContent = '楽しみ方';
   const enjoymentText = document.createElement('div');
   enjoymentText.className = 'section-text text-sm';
@@ -393,7 +393,7 @@ function displayResult() {
   const adviceSection = document.createElement('div');
   adviceSection.className = 'result-section';
   const adviceTitle = document.createElement('div');
-  adviceTitle.className = 'section-title text-md';
+  adviceTitle.className = 'section-title text-sm';
   adviceTitle.textContent = '悩みへの向き合い方';
   const adviceText = document.createElement('div');
   adviceText.className = 'section-text text-sm';

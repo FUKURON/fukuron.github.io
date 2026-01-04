@@ -234,6 +234,7 @@ button.btn-small {
 .section-title {
   font-weight: bold;
   margin-bottom: 4px;
+  text-align: center;
 }
 
 .section-text {
