@@ -340,7 +340,7 @@ function displayResult() {
   // 診断結果の見出し
   const resultTitle = document.createElement('div');
   resultTitle.className = 'result-title';
-  resultTitle.textContent = '診断結果';
+  resultTitle.textContent = 'あなたのタイプは…';
   chatElement.appendChild(resultTitle);
 
   // タイプ名（大きく）と英字4文字（小さく）
