@@ -80,6 +80,10 @@ button.btn-cyan {
   border: 4px solid #7AC6D9;
 }
 
+button.btn-neutral {
+  border: 4px solid #AAAAAA;
+}
+
 
 button.btn-large {
   width: 44px;

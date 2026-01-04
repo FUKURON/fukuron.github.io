@@ -43,8 +43,7 @@ const typeDescriptions = {
 const answerLabels = [
   'そう思う',
   'ややそう思う',
-  '少しそう思う',
-  'あまりそう思わない',
+  'どちらでもない',
   'ややそう思わない',
   'そう思わない'
 ];
@@ -84,12 +83,19 @@ function createAnswerButtons() {
 
   const buttonRow = document.createElement('div');
   buttonRow.className = 'button-row';
-  const scoreValues = [5, 4, 3, 2, 1, 0];
-  const sizeClasses = ['btn-large', 'btn-medium', 'btn-small', 'btn-small', 'btn-medium', 'btn-large'];
+  const scoreValues = [4, 3, 2, 1, 0];
+  const sizeClasses = ['btn-large', 'btn-medium', 'btn-small', 'btn-medium', 'btn-large'];
 
   scoreValues.forEach((score, index) => {
     const button = document.createElement('button');
-    const colorClass = index < 3 ? 'btn-pink' : 'btn-cyan';
+    let colorClass;
+    if (index < 2) {
+      colorClass = 'btn-pink';
+    } else if (index === 2) {
+      colorClass = 'btn-neutral';
+    } else {
+      colorClass = 'btn-cyan';
+    }
     button.className = colorClass + ' ' + sizeClasses[index];
     button.onclick = function() {
       handleAnswer(score);
@@ -168,7 +174,7 @@ function handleAnswer(score) {
 }
 
 function calculateType() {
-  const threshold = 13;
+  const threshold = 10;
   const r = scores.R >= threshold ? 'R' : 'W';
   const e = scores.E >= threshold ? 'E' : 'I';
   const d = scores.D >= threshold ? 'D' : 'L';
@@ -218,7 +224,7 @@ function displayResult() {
   const chatElement = document.getElementById('chat');
   chatElement.innerHTML = '';
   const type = calculateType();
-  const maxScore = 25;
+  const maxScore = 20;
 
   showMessage('診断結果');
   showMessage('あなたのタイプは: ' + typeDescriptions[type] + '（' + type + '）');
