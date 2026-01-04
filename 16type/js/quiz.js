@@ -147,7 +147,7 @@ const answerLabels = [
   'そう思う',
   'ややそう思う',
   'どちらでもない',
-  'ややそう思わない',
+  'あまりそう思わない',
   'そう思わない'
 ];
 
@@ -185,42 +185,18 @@ function createAnswerButtons() {
   const controls = document.createElement('div');
   controls.className = 'controls';
 
-  const buttonRow = document.createElement('div');
-  buttonRow.className = 'button-row';
   // 5段階ボタン: +2, +1, 0, -1, -2
   const scoreValues = [2, 1, 0, -1, -2];
-  const sizeClasses = ['btn-large', 'btn-medium', 'btn-small', 'btn-medium', 'btn-large'];
 
   scoreValues.forEach((score, index) => {
     const button = document.createElement('button');
-    let colorClass;
-    if (index < 2) {
-      colorClass = 'btn-pink';
-    } else if (index === 2) {
-      colorClass = 'btn-neutral';
-    } else {
-      colorClass = 'btn-cyan';
-    }
-    button.className = colorClass + ' ' + sizeClasses[index];
+    button.className = 'answer-button';
+    button.textContent = answerLabels[index];
     button.onclick = function() {
       handleAnswer(score);
     };
-    buttonRow.appendChild(button);
+    controls.appendChild(button);
   });
-
-  controls.appendChild(buttonRow);
-
-  const labelRow = document.createElement('div');
-  labelRow.className = 'label-row text-sm';
-  const labelLeft = document.createElement('span');
-  labelLeft.className = 'label-pink';
-  labelLeft.textContent = 'そう思う';
-  const labelRight = document.createElement('span');
-  labelRight.className = 'label-cyan';
-  labelRight.textContent = 'そう思わない';
-  labelRow.appendChild(labelLeft);
-  labelRow.appendChild(labelRight);
-  controls.appendChild(labelRow);
 
   chatElement.appendChild(controls);
 }
