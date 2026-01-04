@@ -175,7 +175,7 @@ function fadeInChat() {
 function showMessage(text) {
   const chatElement = document.getElementById('chat');
   const messageDiv = document.createElement('div');
-  messageDiv.className = 'message bot';
+  messageDiv.className = 'message bot text-sm';
   messageDiv.textContent = text;
   chatElement.appendChild(messageDiv);
 }
@@ -211,7 +211,7 @@ function createAnswerButtons() {
   controls.appendChild(buttonRow);
 
   const labelRow = document.createElement('div');
-  labelRow.className = 'label-row';
+  labelRow.className = 'label-row text-sm';
   const labelLeft = document.createElement('span');
   labelLeft.className = 'label-pink';
   labelLeft.textContent = 'そう思う';
@@ -228,7 +228,7 @@ function createAnswerButtons() {
 function showProgressCard() {
   const chatElement = document.getElementById('chat');
   const progressDiv = document.createElement('div');
-  progressDiv.className = 'progress-card';
+  progressDiv.className = 'progress-card text-sm';
   progressDiv.textContent = (currentIndex + 1) + '/' + questions.length;
   chatElement.appendChild(progressDiv);
 }
@@ -236,7 +236,7 @@ function showProgressCard() {
 function showQuestionMessage(text) {
   const chatElement = document.getElementById('chat');
   const messageDiv = document.createElement('div');
-  messageDiv.className = 'message bot question-text';
+  messageDiv.className = 'message bot question-text text-md';
   messageDiv.textContent = text;
   chatElement.appendChild(messageDiv);
 }
@@ -299,7 +299,7 @@ function createScoreBar(score, maxScore, leftLabel, rightLabel, leftColor, right
   container.className = 'score-item';
 
   const labels = document.createElement('div');
-  labels.className = 'score-labels';
+  labels.className = 'score-labels text-sm';
   const leftSpan = document.createElement('span');
   leftSpan.textContent = leftLabel;
   leftSpan.style.color = leftColor;
@@ -319,7 +319,7 @@ function createScoreBar(score, maxScore, leftLabel, rightLabel, leftColor, right
   barContainer.appendChild(barFill);
 
   const scoreText = document.createElement('div');
-  scoreText.className = 'score-text';
+  scoreText.className = 'score-text text-sm';
   scoreText.textContent = score;
 
   container.appendChild(labels);
@@ -339,7 +339,7 @@ function displayResult() {
 
   // 診断結果の見出し
   const resultTitle = document.createElement('div');
-  resultTitle.className = 'result-title';
+  resultTitle.className = 'result-title text-sm';
   resultTitle.textContent = 'あなたのタイプは…';
   chatElement.appendChild(resultTitle);
 
@@ -347,10 +347,10 @@ function displayResult() {
   const typeHeader = document.createElement('div');
   typeHeader.className = 'type-header';
   const typeName = document.createElement('div');
-  typeName.className = 'type-name';
+  typeName.className = 'type-name text-lg';
   typeName.textContent = data.name;
   const typeCode = document.createElement('div');
-  typeCode.className = 'type-code';
+  typeCode.className = 'type-code text-sm';
   typeCode.textContent = type;
   typeHeader.appendChild(typeName);
   typeHeader.appendChild(typeCode);
@@ -367,10 +367,10 @@ function displayResult() {
   const personalitySection = document.createElement('div');
   personalitySection.className = 'result-section';
   const personalityTitle = document.createElement('div');
-  personalityTitle.className = 'section-title';
+  personalityTitle.className = 'section-title text-md';
   personalityTitle.textContent = '性格';
   const personalityText = document.createElement('div');
-  personalityText.className = 'section-text';
+  personalityText.className = 'section-text text-sm';
   personalityText.textContent = data.personality;
   personalitySection.appendChild(personalityTitle);
   personalitySection.appendChild(personalityText);
@@ -380,10 +380,10 @@ function displayResult() {
   const enjoymentSection = document.createElement('div');
   enjoymentSection.className = 'result-section';
   const enjoymentTitle = document.createElement('div');
-  enjoymentTitle.className = 'section-title';
+  enjoymentTitle.className = 'section-title text-md';
   enjoymentTitle.textContent = '楽しみ方';
   const enjoymentText = document.createElement('div');
-  enjoymentText.className = 'section-text';
+  enjoymentText.className = 'section-text text-sm';
   enjoymentText.textContent = data.enjoyment;
   enjoymentSection.appendChild(enjoymentTitle);
   enjoymentSection.appendChild(enjoymentText);
@@ -393,10 +393,10 @@ function displayResult() {
   const adviceSection = document.createElement('div');
   adviceSection.className = 'result-section';
   const adviceTitle = document.createElement('div');
-  adviceTitle.className = 'section-title';
+  adviceTitle.className = 'section-title text-md';
   adviceTitle.textContent = '悩みへの向き合い方';
   const adviceText = document.createElement('div');
-  adviceText.className = 'section-text';
+  adviceText.className = 'section-text text-sm';
   adviceText.textContent = data.advice;
   adviceSection.appendChild(adviceTitle);
   adviceSection.appendChild(adviceText);
@@ -407,7 +407,7 @@ function displayResult() {
   scoreSection.className = 'score-section';
 
   const scoreTitle = document.createElement('div');
-  scoreTitle.className = 'score-title';
+  scoreTitle.className = 'score-title text-sm';
   scoreTitle.textContent = 'スコア詳細';
   scoreSection.appendChild(scoreTitle);
 

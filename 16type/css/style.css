@@ -6,6 +6,20 @@
   --yumekawa-blue: #C1E8FF;
 }
 
+/* フォントサイズユーティリティクラス */
+.text-sm {
+  font-size: 18px;
+}
+
+.text-md {
+  font-size: 24px;
+}
+
+.text-lg {
+  font-size: 32px;
+  font-weight: bold;
+}
+
 body {
   font-family: 'M PLUS Rounded 1c', sans-serif;
   background: linear-gradient(135deg, var(--yumekawa-pink), var(--yumekawa-purple), var(--yumekawa-blue));
@@ -65,7 +79,6 @@ body {
 .label-row {
   display: flex;
   justify-content: space-between;
-  font-size: 14px;
   padding: 0 4px;
 }
 
@@ -112,19 +125,16 @@ button.btn-small {
 }
 
 .small {
-  font-size: 12px;
   color: #666;
 }
 
 .progress-card {
   padding: 0;
   margin: 0 0 16px 0;
-  font-size: 14px;
   text-align: center;
 }
 
 .question-text {
-  font-size: 16px;
   font-weight: bold;
 }
 
@@ -160,7 +170,6 @@ button.btn-small {
 }
 
 .score-title {
-  font-size: 14px;
   font-weight: bold;
   margin-bottom: 16px;
   text-align: center;
@@ -173,7 +182,6 @@ button.btn-small {
 .score-labels {
   display: flex;
   justify-content: space-between;
-  font-size: 12px;
   margin-bottom: 4px;
 }
 
@@ -189,14 +197,12 @@ button.btn-small {
 }
 
 .score-text {
-  font-size: 11px;
   color: #666;
   text-align: center;
   margin-top: 4px;
 }
 
 .result-title {
-  font-size: 14px;
   text-align: center;
   margin-bottom: 16px;
 }
@@ -207,13 +213,10 @@ button.btn-small {
 }
 
 .type-name {
-  font-size: 20px;
-  font-weight: bold;
   margin-bottom: 4px;
 }
 
 .type-code {
-  font-size: 14px;
   color: #666;
 }
 
@@ -229,12 +232,10 @@ button.btn-small {
 }
 
 .section-title {
-  font-size: 14px;
   font-weight: bold;
   margin-bottom: 4px;
 }
 
 .section-text {
-  font-size: 14px;
   line-height: 1.6;
 }
