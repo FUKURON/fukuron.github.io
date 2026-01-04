@@ -186,14 +186,20 @@ button.btn-small {
 }
 
 .score-bar-container {
-  height: 8px;
-  background: #7AC6D9;
-  overflow: hidden;
+  position: relative;
+  height: 2px;
+  background: #AAAAAA;
+  margin: 16px 0 24px 0;
 }
 
-.score-bar-fill {
-  height: 100%;
-  background: #F58CA8;
+.score-dot {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  background: #7D5A96;
+  border-radius: 50%;
 }
 
 .score-text {
