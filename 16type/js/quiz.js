@@ -281,11 +281,11 @@ function handleAnswer(score) {
 }
 
 function calculateType() {
-  // スコアが0以上なら左側（R/E/D/S）、マイナスなら右側（W/I/L/V）
-  const r = scores.RW >= 0 ? 'R' : 'W';
-  const e = scores.EI >= 0 ? 'E' : 'I';
-  const d = scores.DL >= 0 ? 'D' : 'L';
-  const s = scores.SV >= 0 ? 'S' : 'V';
+  // スコアが正なら左側（R/E/D/S）、0以下なら右側（W/I/L/V）
+  const r = scores.RW > 0 ? 'R' : 'W';
+  const e = scores.EI > 0 ? 'E' : 'I';
+  const d = scores.DL > 0 ? 'D' : 'L';
+  const s = scores.SV > 0 ? 'S' : 'V';
   return r + e + d + s;
 }
 
