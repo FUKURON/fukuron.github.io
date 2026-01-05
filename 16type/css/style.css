@@ -192,8 +192,8 @@ body {
 .type-image {
   display: block;
   width: 100%;
-  max-width: 200px;
-  margin: 0 auto 20px auto;
+  max-width: 300px;
+  margin: 0 auto 10px auto;
 }
 
 .result-section {
