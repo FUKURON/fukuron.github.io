@@ -85,6 +85,9 @@ body {
   transition: background 0.2s, transform 0.1s;
 }
 
+.answer-button:active {
+  transform: scale(0.95);
+}
 
 .small {
   color: #666;
