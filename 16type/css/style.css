@@ -136,7 +136,7 @@ body {
 
 .score-title {
   font-weight: bold;
-  margin-bottom: 16px;
+  margin: 32px 0 16px 0;
   text-align: center;
 }
 
@@ -211,7 +211,7 @@ body {
 
 .section-title {
   font-weight: bold;
-  margin-bottom: 4px;
+  margin: 32px 0 4px 0;
   text-align: center;
 }
 
