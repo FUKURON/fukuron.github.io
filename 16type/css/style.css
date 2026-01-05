@@ -194,12 +194,12 @@ body {
   width: 100%;
   max-width: 300px;
   margin: 0 auto 10px auto;
-  animation: typeImageShake 3s ease-in-out infinite;
+  animation: typeImageShake 5s ease-in-out infinite;
 }
 
 @keyframes typeImageShake {
   0%, 100% { transform: rotate(-5deg) scale(1); }
-  50% { transform: rotate(5deg) scale(1.1); }
+  50% { transform: rotate(5deg) scale(1.05); }
 }
 
 .result-section {
