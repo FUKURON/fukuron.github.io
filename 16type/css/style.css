@@ -85,6 +85,9 @@ body {
   transition: background 0.2s, transform 0.1s;
 }
 
+.answer-button:active {
+  transform: scale(0.95);
+}
 
 .small {
   color: #666;
@@ -133,7 +136,7 @@ body {
 
 .score-title {
   font-weight: bold;
-  margin-bottom: 16px;
+  margin: 32px 0 16px 0;
   text-align: center;
 }
 
@@ -194,6 +197,12 @@ body {
   width: 100%;
   max-width: 300px;
   margin: 0 auto 10px auto;
+  animation: typeImageShake 5s ease-in-out infinite;
+}
+
+@keyframes typeImageShake {
+  0%, 100% { transform: rotate(-5deg) scale(1); }
+  50% { transform: rotate(5deg) scale(1.05); }
 }
 
 .result-section {
@@ -202,7 +211,7 @@ body {
 
 .section-title {
   font-weight: bold;
-  margin-bottom: 4px;
+  margin: 32px 0 4px 0;
   text-align: center;
 }
 
