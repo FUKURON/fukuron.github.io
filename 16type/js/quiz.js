@@ -27,122 +27,6 @@ const questions = [
   { axis: 'SV', dir: -1, text: '推し変やジャンルの移動に抵抗がない。' }
 ];
 
-// 16タイプのデータ（画像・テキストは後から差し替え可能）
-const typeData = {
-  'REDS': {
-    name: 'きらきら茶トラ',
-    image: 'images/types/REDS.png',
-    personality: '推しの幸せは私の幸せ。現場も記念日も全力、推しへの愛が日々のエネルギー源。周囲を明るく照らす力を持っています。',
-    enjoyment: '記念日を祝う、ポジティブな言葉で布教、仲間との積極的な交流。',
-    advice: '一人で抱え込まず、同じ熱量の仲間と語り合うことで心の平穏を保って。'
-  },
-  'REDV': {
-    name: 'おひさまミケ',
-    image: 'images/types/REDV.png',
-    personality: '推しの幸せは私の幸せ。現場も記念日も全力、推しへの愛が日々のエネルギー源。周囲を明るく照らす力を持っています。',
-    enjoyment: '記念日を祝う、ポジティブな言葉で布教、仲間との積極的な交流。',
-    advice: '一人で抱え込まず、同じ熱量の仲間と語り合うことで心の平穏を保って。'
-  },
-  'RELS': {
-    name: 'のんびり茶白',
-    image: 'images/types/RELS.png',
-    personality: '推しの幸せは私の幸せ。現場も記念日も全力、推しへの愛が日々のエネルギー源。周囲を明るく照らす力を持っています。',
-    enjoyment: '記念日を祝う、ポジティブな言葉で布教、仲間との積極的な交流。',
-    advice: '一人で抱え込まず、同じ熱量の仲間と語り合うことで心の平穏を保って。'
-  },
-  'RELV': {
-    name: 'ときめきブチ',
-    image: 'images/types/RELV.png',
-    personality: '推しの幸せは私の幸せ。現場も記念日も全力、推しへの愛が日々のエネルギー源。周囲を明るく照らす力を持っています。',
-    enjoyment: '記念日を祝う、ポジティブな言葉で布教、仲間との積極的な交流。',
-    advice: '一人で抱え込まず、同じ熱量の仲間と語り合うことで心の平穏を保って。'
-  },
-  'RIDS': {
-    name: 'じっくり黒ネコ',
-    image: 'images/types/RIDS.png',
-    personality: '推しの幸せは私の幸せ。現場も記念日も全力、推しへの愛が日々のエネルギー源。周囲を明るく照らす力を持っています。',
-    enjoyment: '記念日を祝う、ポジティブな言葉で布教、仲間との積極的な交流。',
-    advice: '一人で抱え込まず、同じ熱量の仲間と語り合うことで心の平穏を保って。'
-  },
-  'RIDV': {
-    name: 'ふらり白ネコ',
-    image: 'images/types/RIDV.png',
-    personality: '推しの幸せは私の幸せ。現場も記念日も全力、推しへの愛が日々のエネルギー源。周囲を明るく照らす力を持っています。',
-    enjoyment: '記念日を祝う、ポジティブな言葉で布教、仲間との積極的な交流。',
-    advice: '一人で抱え込まず、同じ熱量の仲間と語り合うことで心の平穏を保って。'
-  },
-  'RILS': {
-    name: 'ゆるっとサバトラ',
-    image: 'images/types/RILS.png',
-    personality: '推しの幸せは私の幸せ。現場も記念日も全力、推しへの愛が日々のエネルギー源。周囲を明るく照らす力を持っています。',
-    enjoyment: '記念日を祝う、ポジティブな言葉で布教、仲間との積極的な交流。',
-    advice: '一人で抱え込まず、同じ熱量の仲間と語り合うことで心の平穏を保って。'
-  },
-  'RILV': {
-    name: 'どきどきシャム',
-    image: 'images/types/RILV.png',
-    personality: '推しの幸せは私の幸せ。現場も記念日も全力、推しへの愛が日々のエネルギー源。周囲を明るく照らす力を持っています。',
-    enjoyment: '記念日を祝う、ポジティブな言葉で布教、仲間との積極的な交流。',
-    advice: '一人で抱え込まず、同じ熱量の仲間と語り合うことで心の平穏を保って。'
-  },
-  'WEDS': {
-    name: '情熱の赤茶トラ',
-    image: 'images/types/WEDS.png',
-    personality: '推しの幸せは私の幸せ。現場も記念日も全力、推しへの愛が日々のエネルギー源。周囲を明るく照らす力を持っています。',
-    enjoyment: '記念日を祝う、ポジティブな言葉で布教、仲間との積極的な交流。',
-    advice: '一人で抱え込まず、同じ熱量の仲間と語り合うことで心の平穏を保って。'
-  },
-  'WEDV': {
-    name: 'お祭りベンガル',
-    image: 'images/types/WEDV.png',
-    personality: '推しの幸せは私の幸せ。現場も記念日も全力、推しへの愛が日々のエネルギー源。周囲を明るく照らす力を持っています。',
-    enjoyment: '記念日を祝う、ポジティブな言葉で布教、仲間との積極的な交流。',
-    advice: '一人で抱え込まず、同じ熱量の仲間と語り合うことで心の平穏を保って。'
-  },
-  'WELS': {
-    name: 'ひだまりベージュ',
-    image: 'images/types/WELS.png',
-    personality: '推しの幸せは私の幸せ。現場も記念日も全力、推しへの愛が日々のエネルギー源。周囲を明るく照らす力を持っています。',
-    enjoyment: '記念日を祝う、ポジティブな言葉で布教、仲間との積極的な交流。',
-    advice: '一人で抱え込まず、同じ熱量の仲間と語り合うことで心の平穏を保って。'
-  },
-  'WELV': {
-    name: 'かろやかくつした',
-    image: 'images/types/WELV.png',
-    personality: '推しの幸せは私の幸せ。現場も記念日も全力、推しへの愛が日々のエネルギー源。周囲を明るく照らす力を持っています。',
-    enjoyment: '記念日を祝う、ポジティブな言葉で布教、仲間との積極的な交流。',
-    advice: '一人で抱え込まず、同じ熱量の仲間と語り合うことで心の平穏を保って。'
-  },
-  'WIDS': {
-    name: 'しずかな銀ネコ',
-    image: 'images/types/WIDS.png',
-    personality: '推しの幸せは私の幸せ。現場も記念日も全力、推しへの愛が日々のエネルギー源。周囲を明るく照らす力を持っています。',
-    enjoyment: '記念日を祝う、ポジティブな言葉で布教、仲間との積極的な交流。',
-    advice: '一人で抱え込まず、同じ熱量の仲間と語り合うことで心の平穏を保って。'
-  },
-  'WIDV': {
-    name: 'ものしりモフ白',
-    image: 'images/types/WIDV.png',
-    personality: '推しの幸せは私の幸せ。現場も記念日も全力、推しへの愛が日々のエネルギー源。周囲を明るく照らす力を持っています。',
-    enjoyment: '記念日を祝う、ポジティブな言葉で布教、仲間との積極的な交流。',
-    advice: '一人で抱え込まず、同じ熱量の仲間と語り合うことで心の平穏を保って。'
-  },
-  'WILS': {
-    name: 'おっとりスコ',
-    image: 'images/types/WILS.png',
-    personality: '推しの幸せは私の幸せ。現場も記念日も全力、推しへの愛が日々のエネルギー源。周囲を明るく照らす力を持っています。',
-    enjoyment: '記念日を祝う、ポジティブな言葉で布教、仲間との積極的な交流。',
-    advice: '一人で抱え込まず、同じ熱量の仲間と語り合うことで心の平穏を保って。'
-  },
-  'WILV': {
-    name: 'たそがれサビ',
-    image: 'images/types/WILV.png',
-    personality: '推しの幸せは私の幸せ。現場も記念日も全力、推しへの愛が日々のエネルギー源。周囲を明るく照らす力を持っています。',
-    enjoyment: '記念日を祝う、ポジティブな言葉で布教、仲間との積極的な交流。',
-    advice: '一人で抱え込まず、同じ熱量の仲間と語り合うことで心の平穏を保って。'
-  }
-};
-
 const answerLabels = [
   'そう思う',
   'ややそう思う',
@@ -384,7 +268,12 @@ function displayResult() {
 }
 
 function showResult() {
-  fadeOutChat(displayResult);
+  const params = new URLSearchParams();
+  params.set('RW', scores.RW);
+  params.set('EI', scores.EI);
+  params.set('DL', scores.DL);
+  params.set('SV', scores.SV);
+  window.location.href = 'result.html?' + params.toString();
 }
 
 function shuffleArray(array) {
