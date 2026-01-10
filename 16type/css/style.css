@@ -196,7 +196,7 @@ body {
   display: block;
   width: 100%;
   max-width: 300px;
-  margin: 0 auto 10px auto;
+  margin: 0 auto 20px auto;
   animation: typeImageShake 5s ease-in-out infinite;
 }
 
