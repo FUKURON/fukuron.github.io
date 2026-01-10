@@ -243,7 +243,7 @@ body {
 .compatibility-image-wrapper {
   display: inline-block;
   position: relative;
-  margin-bottom: 8px;
+  margin-bottom: 24px;
 }
 
 .compatibility-image-wrapper::before {
