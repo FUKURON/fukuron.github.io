@@ -49,6 +49,55 @@ function createScoreBar(score, maxScore, leftLabel, rightLabel) {
   return container;
 }
 
+function createCompatibilitySection(type) {
+  const compatibleTypes = compatibilityData[type];
+  if (!compatibleTypes || compatibleTypes.length === 0) {
+    return null;
+  }
+
+  const section = document.createElement('div');
+  section.className = 'compatibility-section';
+
+  const title = document.createElement('div');
+  title.className = 'section-title text-sm';
+  title.textContent = '一緒に推し活すると楽しい仲間';
+  section.appendChild(title);
+
+  const list = document.createElement('div');
+  list.className = 'compatibility-list';
+
+  compatibleTypes.forEach(function(item) {
+    const compatibleData = typeData[item.type];
+    if (!compatibleData) {
+      return;
+    }
+
+    const card = document.createElement('div');
+    card.className = 'compatibility-card';
+
+    const image = document.createElement('img');
+    image.className = 'compatibility-image';
+    image.src = compatibleData.image;
+    image.alt = compatibleData.name;
+    card.appendChild(image);
+
+    const name = document.createElement('div');
+    name.className = 'compatibility-name text-sm';
+    name.textContent = compatibleData.name;
+    card.appendChild(name);
+
+    const description = document.createElement('div');
+    description.className = 'compatibility-description text-sm';
+    description.textContent = item.description;
+    card.appendChild(description);
+
+    list.appendChild(card);
+  });
+
+  section.appendChild(list);
+  return section;
+}
+
 function displayResult() {
   const chatElement = document.getElementById('chat');
   chatElement.innerHTML = '';
@@ -133,6 +182,12 @@ function displayResult() {
   scoreSection.appendChild(createScoreBar(scores.SV, maxScore, '(S) 一途', '多様 (V)'));
 
   chatElement.appendChild(scoreSection);
+
+  // 相性セクションを追加
+  const compatibilitySection = createCompatibilitySection(type);
+  if (compatibilitySection) {
+    chatElement.appendChild(compatibilitySection);
+  }
 
   const retrySection = document.createElement('div');
   retrySection.className = 'result-section';

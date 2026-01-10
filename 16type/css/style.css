@@ -218,3 +218,38 @@ body {
 .section-text {
   line-height: 1.6;
 }
+
+/* 相性セクション */
+.compatibility-section {
+  margin-top: 32px;
+}
+
+.compatibility-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.compatibility-card {
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 20px;
+  padding: 16px;
+  text-align: center;
+}
+
+.compatibility-image {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 8px;
+}
+
+.compatibility-name {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.compatibility-description {
+  line-height: 1.5;
+}
