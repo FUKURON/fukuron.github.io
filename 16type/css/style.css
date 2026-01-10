@@ -210,9 +210,11 @@ body {
 }
 
 .section-title {
+  font-size: 20px;
   font-weight: bold;
   margin: 32px 0 4px 0;
   text-align: center;
+  color: #6B4A7D;
 }
 
 .section-text {
