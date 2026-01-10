@@ -1,3 +1,22 @@
+// タイプコードの各文字に対応する日本語ラベル
+const typeLabels = {
+  R: '恋心',
+  W: '尊み',
+  E: '交流',
+  I: '没入',
+  D: '本気',
+  L: 'ゆるく',
+  S: '一途',
+  V: '多様'
+};
+
+// タイプコードから詳細ラベル文字列を生成する関数
+function getTypeDetailLabel(type) {
+  return type.split('').map(function(char) {
+    return typeLabels[char] || char;
+  }).join('×');
+}
+
 function fadeInChat() {
   const chatElement = document.getElementById('chat');
   chatElement.classList.add('fade-in');
@@ -88,8 +107,12 @@ function displayResult() {
   const typeCode = document.createElement('div');
   typeCode.className = 'type-code text-sm';
   typeCode.textContent = type;
+  const typeDetail = document.createElement('div');
+  typeDetail.className = 'type-detail text-sm';
+  typeDetail.textContent = getTypeDetailLabel(type);
   typeHeader.appendChild(typeName);
   typeHeader.appendChild(typeCode);
+  typeHeader.appendChild(typeDetail);
   chatElement.appendChild(typeHeader);
 
   const typeImage = document.createElement('img');
