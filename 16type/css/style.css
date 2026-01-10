@@ -135,9 +135,11 @@ body {
 }
 
 .score-title {
+  font-size: 20px;
   font-weight: bold;
   margin: 32px 0 16px 0;
   text-align: center;
+  color: #6B4A7D;
 }
 
 .score-item {
@@ -210,14 +212,11 @@ body {
 }
 
 .section-title {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
-  margin: 32px 0 8px 0;
+  margin: 32px 0 4px 0;
   text-align: center;
-  background: #7D5A96;
-  color: #FFFFFF;
-  padding: 8px 16px;
-  border-radius: 20px;
+  color: #6B4A7D;
 }
 
 .section-text {
