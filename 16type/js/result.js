@@ -66,7 +66,7 @@ function displayResult() {
 
   const resultTitle = document.createElement('div');
   resultTitle.className = 'result-title text-sm';
-  resultTitle.textContent = 'あなたのタイプは…';
+  resultTitle.textContent = 'あなたの推し活キャラは…';
   chatElement.appendChild(resultTitle);
 
   const typeHeader = document.createElement('div');
