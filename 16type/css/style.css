@@ -233,6 +233,11 @@ body {
   margin-bottom: 8px;
 }
 
+.compatibility-type-code {
+  font-weight: bold;
+  color: rgba(125, 90, 150, 0.6);
+}
+
 .compatibility-description {
   line-height: 1.5;
   text-align: left;

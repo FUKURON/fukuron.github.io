@@ -66,7 +66,12 @@ function createCompatibilitySection(type) {
 
     const name = document.createElement('div');
     name.className = 'compatibility-name text-sm';
-    name.textContent = compatibleData.name;
+    const nameText = document.createTextNode(compatibleData.name + ' ');
+    const typeCode = document.createElement('span');
+    typeCode.className = 'compatibility-type-code';
+    typeCode.textContent = item.type;
+    name.appendChild(nameText);
+    name.appendChild(typeCode);
     card.appendChild(name);
 
     const description = document.createElement('div');
