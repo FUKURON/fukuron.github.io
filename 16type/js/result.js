@@ -141,8 +141,9 @@ function displayResult() {
   const retryLink = document.createElement('a');
   retryLink.href = 'test.html';
   retryLink.className = 'answer-button';
-  retryLink.style.display = 'inline-block';
+  retryLink.style.display = 'block';
   retryLink.style.textDecoration = 'none';
+  retryLink.style.boxSizing = 'border-box';
   retryLink.textContent = 'もう一度診断する';
   retrySection.appendChild(retryLink);
   chatElement.appendChild(retrySection);
