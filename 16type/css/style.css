@@ -135,9 +135,11 @@ body {
 }
 
 .score-title {
+  font-size: 20px;
   font-weight: bold;
   margin: 32px 0 16px 0;
   text-align: center;
+  color: #6B4A7D;
 }
 
 .score-item {
@@ -184,6 +186,7 @@ body {
 }
 
 .type-name {
+  color: #6B4A7D;
   margin-bottom: 4px;
 }
 
@@ -210,9 +213,11 @@ body {
 }
 
 .section-title {
+  font-size: 20px;
   font-weight: bold;
   margin: 32px 0 4px 0;
   text-align: center;
+  color: #6B4A7D;
 }
 
 .section-text {
@@ -236,14 +241,31 @@ body {
   text-align: center;
 }
 
+.compatibility-image-wrapper {
+  display: inline-block;
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.compatibility-image-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 152px;
+  height: 152px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  z-index: 0;
+}
+
 .compatibility-image {
   width: 120px;
   height: 120px;
   object-fit: contain;
-  margin-bottom: 8px;
-  background: rgba(255, 255, 255, 0.4);
-  border-radius: 50%;
-  padding: 16px;
+  position: relative;
+  z-index: 1;
 }
 
 .compatibility-name {

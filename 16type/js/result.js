@@ -75,11 +75,16 @@ function createCompatibilitySection(type) {
     const card = document.createElement('div');
     card.className = 'compatibility-card';
 
+    const imageWrapper = document.createElement('div');
+    imageWrapper.className = 'compatibility-image-wrapper';
+
     const image = document.createElement('img');
     image.className = 'compatibility-image';
     image.src = compatibleData.image;
     image.alt = compatibleData.name;
-    card.appendChild(image);
+
+    imageWrapper.appendChild(image);
+    card.appendChild(imageWrapper);
 
     const name = document.createElement('div');
     name.className = 'compatibility-name text-sm';
