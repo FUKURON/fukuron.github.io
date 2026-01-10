@@ -14,7 +14,7 @@ const typeLabels = {
 function getTypeDetailLabel(type) {
   return type.split('').map(function(char) {
     return typeLabels[char] || char;
-  }).join('×');
+  }).join(' × ');
 }
 
 function fadeInChat() {
