@@ -150,6 +150,11 @@ body {
   color: rgba(125, 90, 150, 0.6);
 }
 
+.type-detail {
+  margin-top: 0px;
+  color: rgba(125, 90, 150, 0.6);
+}
+
 .type-image {
   display: block;
   width: 100%;
