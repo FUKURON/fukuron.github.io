@@ -3,50 +3,9 @@ function fadeInChat() {
   chatElement.classList.add('fade-in');
 }
 
-function getScoresFromURL() {
+function getTypeFromURL() {
   const params = new URLSearchParams(window.location.search);
-  return {
-    RW: parseInt(params.get('RW'), 10) || 0,
-    EI: parseInt(params.get('EI'), 10) || 0,
-    DL: parseInt(params.get('DL'), 10) || 0,
-    SV: parseInt(params.get('SV'), 10) || 0
-  };
-}
-
-function calculateType(scores) {
-  const r = scores.RW > 0 ? 'R' : 'W';
-  const e = scores.EI > 0 ? 'E' : 'I';
-  const d = scores.DL > 0 ? 'D' : 'L';
-  const s = scores.SV > 0 ? 'S' : 'V';
-  return r + e + d + s;
-}
-
-function createScoreBar(score, maxScore, leftLabel, rightLabel) {
-  const percentage = ((-score + maxScore) / (maxScore * 2)) * 100;
-
-  const container = document.createElement('div');
-  container.className = 'score-item';
-
-  const labels = document.createElement('div');
-  labels.className = 'score-labels text-sm';
-  const leftSpan = document.createElement('span');
-  leftSpan.textContent = leftLabel;
-  const rightSpan = document.createElement('span');
-  rightSpan.textContent = rightLabel;
-  labels.appendChild(leftSpan);
-  labels.appendChild(rightSpan);
-
-  const barContainer = document.createElement('div');
-  barContainer.className = 'score-bar-container';
-  const dot = document.createElement('div');
-  dot.className = 'score-dot';
-  dot.style.left = percentage + '%';
-  barContainer.appendChild(dot);
-
-  container.appendChild(labels);
-  container.appendChild(barContainer);
-
-  return container;
+  return params.get('type') || '';
 }
 
 function createCompatibilitySection(type) {
@@ -107,10 +66,8 @@ function displayResult() {
   const chatElement = document.getElementById('chat');
   chatElement.innerHTML = '';
 
-  const scores = getScoresFromURL();
-  const type = calculateType(scores);
+  const type = getTypeFromURL();
   const data = typeData[type];
-  const maxScore = 8;
 
   if (!data) {
     chatElement.innerHTML = '<div class="message bot text-sm">診断結果が見つかりませんでした。<a href="test.html">診断をやり直す</a></div>';
@@ -172,21 +129,6 @@ function displayResult() {
   adviceSection.appendChild(adviceTitle);
   adviceSection.appendChild(adviceText);
   chatElement.appendChild(adviceSection);
-
-  const scoreSection = document.createElement('div');
-  scoreSection.className = 'score-section';
-
-  const scoreTitle = document.createElement('div');
-  scoreTitle.className = 'score-title text-sm';
-  scoreTitle.textContent = 'スコア詳細';
-  scoreSection.appendChild(scoreTitle);
-
-  scoreSection.appendChild(createScoreBar(scores.RW, maxScore, '(R) ガチ恋', '尊み (W)'));
-  scoreSection.appendChild(createScoreBar(scores.EI, maxScore, '(E) みんなで', 'ひとりで (I)'));
-  scoreSection.appendChild(createScoreBar(scores.DL, maxScore, '(D) 本気', 'ゆる (L)'));
-  scoreSection.appendChild(createScoreBar(scores.SV, maxScore, '(S) 一途', '多様 (V)'));
-
-  chatElement.appendChild(scoreSection);
 
   // 相性セクションを追加
   const compatibilitySection = createCompatibilitySection(type);

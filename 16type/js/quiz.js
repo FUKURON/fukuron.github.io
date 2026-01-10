@@ -268,12 +268,8 @@ function displayResult() {
 }
 
 function showResult() {
-  const params = new URLSearchParams();
-  params.set('RW', scores.RW);
-  params.set('EI', scores.EI);
-  params.set('DL', scores.DL);
-  params.set('SV', scores.SV);
-  window.location.href = 'result.html?' + params.toString();
+  const type = calculateType();
+  window.location.href = 'result.html?type=' + type;
 }
 
 function shuffleArray(array) {
