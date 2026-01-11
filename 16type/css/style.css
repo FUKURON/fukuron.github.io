@@ -346,48 +346,28 @@ body {
 
 .character-card {
   text-align: center;
-  padding: 16px 0;
-}
-
-.character-image-wrapper {
-  display: inline-block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-.character-image-wrapper::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 140px;
-  height: 140px;
+  padding: 16px 8px;
   background: rgba(255, 255, 255, 0.4);
-  border-radius: 50%;
-  z-index: 0;
+  border-radius: 20px;
 }
 
 .character-image {
-  width: 120px;
-  height: 120px;
+  width: 100%;
+  max-width: 100px;
+  height: auto;
   object-fit: contain;
-  position: relative;
-  z-index: 1;
-}
-
-.character-info {
-  text-align: center;
+  margin-bottom: 8px;
 }
 
 .character-name {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
   color: #6B4A7D;
   margin: 0 0 4px 0;
 }
 
 .character-code {
+  font-size: 14px;
   font-weight: bold;
   color: rgba(125, 90, 150, 0.6);
   margin: 0;

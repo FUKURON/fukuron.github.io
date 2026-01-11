@@ -45,13 +45,9 @@
         card.className = 'character-card';
         
         card.innerHTML = 
-          '<div class="character-image-wrapper">' +
-            '<img src="' + type.image + '" alt="' + type.name + '" class="character-image">' +
-          '</div>' +
-          '<div class="character-info">' +
-            '<p class="character-name">' + type.name + '</p>' +
-            '<p class="character-code">' + typeCode + '</p>' +
-          '</div>';
+          '<img src="' + type.image + '" alt="' + type.name + '" class="character-image">' +
+          '<p class="character-name">' + type.name + '</p>' +
+          '<p class="character-code">' + typeCode + '</p>';
         
         characterList.appendChild(card);
       });
