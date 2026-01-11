@@ -392,3 +392,17 @@ body {
   color: rgba(125, 90, 150, 0.6);
   margin: 0;
 }
+
+/* フッター */
+.site-footer {
+  width: 100%;
+  max-width: 400px;
+  margin-top: 24px;
+  text-align: center;
+}
+
+.footer-text {
+  font-size: 12px;
+  color: rgba(125, 90, 150, 0.6);
+  margin: 0;
+}
