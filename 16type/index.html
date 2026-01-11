@@ -42,14 +42,10 @@
         card.className = 'character-card';
         
         card.innerHTML = 
-          '<div class="character-card-content">' +
-            '<img src="' + type.image + '" alt="' + type.name + '" class="character-image">' +
-            '<p class="character-name">' + type.name + '</p>' +
-            '<p class="character-code">' + typeCode + '</p>' +
-          '</div>' +
-          '<div class="character-card-indicator">' +
-            '<span class="tap-icon">&#x276F;</span>' +
-          '</div>';
+          '<span class="tap-icon">&#x276F;</span>' +
+          '<img src="' + type.image + '" alt="' + type.name + '" class="character-image">' +
+          '<p class="character-name">' + type.name + '</p>' +
+          '<p class="character-code">' + typeCode + '</p>';
         
         cardLink.appendChild(card);
         characterList.appendChild(cardLink);
