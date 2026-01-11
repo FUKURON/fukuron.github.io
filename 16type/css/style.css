@@ -339,9 +339,9 @@ body {
 }
 
 .character-list {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
 }
 
 .character-card {
@@ -390,11 +390,5 @@ body {
 .character-code {
   font-weight: bold;
   color: rgba(125, 90, 150, 0.6);
-  margin: 0 0 8px 0;
-}
-
-.character-personality {
-  line-height: 1.6;
   margin: 0;
-  text-align: left;
 }
