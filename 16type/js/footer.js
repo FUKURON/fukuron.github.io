@@ -9,10 +9,13 @@ const footerConfig = {
 };
 
 function initFooter() {
+  const chatContainer = document.getElementById('chat');
+  if (!chatContainer) return;
+
   const footer = document.createElement('footer');
   footer.className = 'site-footer';
   footer.innerHTML = '<p class="footer-text">' + footerConfig.text + '</p>';
-  document.body.appendChild(footer);
+  chatContainer.appendChild(footer);
 }
 
 document.addEventListener('DOMContentLoaded', initFooter);
