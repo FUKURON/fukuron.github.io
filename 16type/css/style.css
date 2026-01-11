@@ -141,6 +141,7 @@ body {
 }
 
 .type-name {
+  text-align: center;
   color: #6B4A7D;
   margin-bottom: 4px;
 }
@@ -245,7 +246,7 @@ body {
 
 /* トップページ用スタイル */
 .catchcopy {
-  margin-top: 8px;
+  margin: 0px;
   line-height: 1.6;
   text-align: center;
 }
@@ -257,14 +258,14 @@ body {
 .type-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
-  margin: 24px 0;
+  gap: 0px;
+  margin: 32px 0;
 }
 
 .type-grid img {
   width: 100%;
   height: auto;
-  border-radius: 8px;
+  border-radius: 0px;
   animation: bounce 1.5s ease-in-out infinite;
 }
 
@@ -284,6 +285,7 @@ body {
   display: block;
   width: 100%;
   padding: 21px 16px;
+  margin: 32px 0;
   border: none;
   border-radius: 50px;
   background: linear-gradient(135deg, #FF6B9D, #C44AFF);
