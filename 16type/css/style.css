@@ -251,16 +251,60 @@ body {
 
 .type-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 6px;
   margin: 24px 0;
 }
 
 .type-grid img {
   width: 100%;
   height: auto;
-  border-radius: 12px;
+  border-radius: 8px;
+  background: radial-gradient(circle, #FFD1E8 0%, #C8E7FF 100%);
+  padding: 4px;
+  box-sizing: border-box;
+  transition: transform 0.3s ease;
+  cursor: pointer;
 }
+
+.type-grid img:hover {
+  transform: translateY(-6px);
+}
+
+/* ランダムな傾き */
+.type-grid img:nth-child(1) { transform: rotate(-2deg); }
+.type-grid img:nth-child(2) { transform: rotate(1deg); }
+.type-grid img:nth-child(3) { transform: rotate(-1deg); }
+.type-grid img:nth-child(4) { transform: rotate(3deg); }
+.type-grid img:nth-child(5) { transform: rotate(-3deg); }
+.type-grid img:nth-child(6) { transform: rotate(2deg); }
+.type-grid img:nth-child(7) { transform: rotate(-1deg); }
+.type-grid img:nth-child(8) { transform: rotate(1deg); }
+.type-grid img:nth-child(9) { transform: rotate(2deg); }
+.type-grid img:nth-child(10) { transform: rotate(-2deg); }
+.type-grid img:nth-child(11) { transform: rotate(1deg); }
+.type-grid img:nth-child(12) { transform: rotate(-3deg); }
+.type-grid img:nth-child(13) { transform: rotate(3deg); }
+.type-grid img:nth-child(14) { transform: rotate(-1deg); }
+.type-grid img:nth-child(15) { transform: rotate(2deg); }
+.type-grid img:nth-child(16) { transform: rotate(-2deg); }
+
+.type-grid img:nth-child(1):hover { transform: rotate(-2deg) translateY(-6px); }
+.type-grid img:nth-child(2):hover { transform: rotate(1deg) translateY(-6px); }
+.type-grid img:nth-child(3):hover { transform: rotate(-1deg) translateY(-6px); }
+.type-grid img:nth-child(4):hover { transform: rotate(3deg) translateY(-6px); }
+.type-grid img:nth-child(5):hover { transform: rotate(-3deg) translateY(-6px); }
+.type-grid img:nth-child(6):hover { transform: rotate(2deg) translateY(-6px); }
+.type-grid img:nth-child(7):hover { transform: rotate(-1deg) translateY(-6px); }
+.type-grid img:nth-child(8):hover { transform: rotate(1deg) translateY(-6px); }
+.type-grid img:nth-child(9):hover { transform: rotate(2deg) translateY(-6px); }
+.type-grid img:nth-child(10):hover { transform: rotate(-2deg) translateY(-6px); }
+.type-grid img:nth-child(11):hover { transform: rotate(1deg) translateY(-6px); }
+.type-grid img:nth-child(12):hover { transform: rotate(-3deg) translateY(-6px); }
+.type-grid img:nth-child(13):hover { transform: rotate(3deg) translateY(-6px); }
+.type-grid img:nth-child(14):hover { transform: rotate(-1deg) translateY(-6px); }
+.type-grid img:nth-child(15):hover { transform: rotate(2deg) translateY(-6px); }
+.type-grid img:nth-child(16):hover { transform: rotate(-2deg) translateY(-6px); }
 
 .cta-button {
   display: block;
