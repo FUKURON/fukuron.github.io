@@ -246,7 +246,7 @@ body {
 
 /* トップページ用スタイル */
 .catchcopy {
-  margin: 0px;
+  margin: 16px 0 0 0 ;
   line-height: 1.6;
   text-align: center;
 }
@@ -327,17 +327,17 @@ body {
 
 .character-image {
   width: 100%;
-  max-width: 100px;
+  max-width: 120px;
   height: auto;
   object-fit: contain;
-  margin-bottom: 8px;
+  margin-bottom: 0;
 }
 
 .character-name {
   font-size: 16px;
   font-weight: bold;
   color: #6B4A7D;
-  margin: 0 0 4px 0;
+  margin: 0 0 0 0;
 }
 
 .character-code {
