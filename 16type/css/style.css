@@ -278,6 +278,28 @@ body {
   transform: scale(0.98);
 }
 
+.cta-button-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tap-finger {
+  font-size: 32px;
+  animation: tapAnimation 1.2s ease-in-out infinite;
+  margin-bottom: 8px;
+}
+
+@keyframes tapAnimation {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(12px);
+  }
+}
+
 /* ローディング画面 */
 .loading-container {
   display: flex;
