@@ -251,7 +251,7 @@ body {
 
 .type-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 8px;
   margin: 24px 0;
 }
@@ -265,36 +265,8 @@ body {
 
 /* 自動跳ねアニメーション */
 @keyframes bounce {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-6px) rotate(0deg); }
-}
-
-/* ランダムな傾きと跳ねアニメーションの組み合わせ */
-.type-grid img:nth-child(1) { animation: bounce1 1.5s ease-in-out infinite; }
-.type-grid img:nth-child(2) { animation: bounce2 1.5s ease-in-out infinite; }
-.type-grid img:nth-child(3) { animation: bounce3 1.5s ease-in-out infinite; }
-.type-grid img:nth-child(4) { animation: bounce4 1.5s ease-in-out infinite; }
-.type-grid img:nth-child(5) { animation: bounce5 1.5s ease-in-out infinite; }
-
-@keyframes bounce1 {
-  0%, 100% { transform: translateY(0) rotate(-2deg); }
-  50% { transform: translateY(-6px) rotate(-2deg); }
-}
-@keyframes bounce2 {
-  0%, 100% { transform: translateY(0) rotate(1deg); }
-  50% { transform: translateY(-6px) rotate(1deg); }
-}
-@keyframes bounce3 {
-  0%, 100% { transform: translateY(0) rotate(-1deg); }
-  50% { transform: translateY(-6px) rotate(-1deg); }
-}
-@keyframes bounce4 {
-  0%, 100% { transform: translateY(0) rotate(3deg); }
-  50% { transform: translateY(-6px) rotate(3deg); }
-}
-@keyframes bounce5 {
-  0%, 100% { transform: translateY(0) rotate(-3deg); }
-  50% { transform: translateY(-6px) rotate(-3deg); }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
 }
 
 .cta-button {
