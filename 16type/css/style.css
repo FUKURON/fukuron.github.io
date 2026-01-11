@@ -141,6 +141,7 @@ body {
 }
 
 .type-name {
+  text-align: center;
   color: #6B4A7D;
   margin-bottom: 4px;
 }
@@ -241,4 +242,64 @@ body {
 .compatibility-description {
   line-height: 1.5;
   text-align: left;
+}
+
+/* トップページ用スタイル */
+.catchcopy {
+  margin: 0px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.message.bot {
+  text-align: center;
+}
+
+.type-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0px;
+  margin: 32px 0;
+}
+
+.type-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 0px;
+  animation: bounce 1.5s ease-in-out infinite;
+}
+
+/* 4キャラそれぞれ別々の周期で跳ねる */
+.type-grid img:nth-child(1) { animation-delay: 0s; }
+.type-grid img:nth-child(2) { animation-delay: 0.2s; }
+.type-grid img:nth-child(3) { animation-delay: 0.4s; }
+.type-grid img:nth-child(4) { animation-delay: 0.6s; }
+
+/* 自動跳ねアニメーション */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.cta-button {
+  display: block;
+  width: 100%;
+  padding: 21px 16px;
+  margin: 32px 0;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #FF6B9D, #C44AFF);
+  color: #fff;
+  font-size: 24px;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(196, 74, 255, 0.4);
+  box-sizing: border-box;
+}
+
+.cta-button:active {
+  transform: scale(0.98);
 }
