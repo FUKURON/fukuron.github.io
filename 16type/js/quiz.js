@@ -283,7 +283,7 @@ function showLoadingScreen(callback) {
 
   setTimeout(function() {
     fadeOutChat(callback);
-  }, 3000);
+  }, 2000);
 }
 
 function showResult() {
