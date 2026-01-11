@@ -34,15 +34,21 @@
       Object.keys(typeData).forEach(function(typeCode) {
         const type = typeData[typeCode];
         
+        const cardLink = document.createElement('a');
+        cardLink.href = 'result.html?type=' + typeCode;
+        cardLink.className = 'character-card-link';
+        
         const card = document.createElement('div');
         card.className = 'character-card';
         
         card.innerHTML = 
+          '<span class="tap-icon">&#x276F;</span>' +
           '<img src="' + type.image + '" alt="' + type.name + '" class="character-image">' +
           '<p class="character-name">' + type.name + '</p>' +
           '<p class="character-code">' + typeCode + '</p>';
         
-        characterList.appendChild(card);
+        cardLink.appendChild(card);
+        characterList.appendChild(cardLink);
       });
     });
   </script>
