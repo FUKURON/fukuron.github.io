@@ -38,7 +38,6 @@ const answerLabels = [
 let currentIndex = 0;
 // 軸ごとのスコア（-2〜+2の範囲で加算、正なら左側、負なら右側）
 const scores = { RW: 0, EI: 0, DL: 0, SV: 0 };
-const introText = '推し活タイプ診断へようこそ！自分の推し活タイプを突き止めるために、ありのままの自分で正直に回答してください（全16問）';
 
 function fadeOutChat(callback) {
   const chatElement = document.getElementById('chat');
@@ -104,10 +103,6 @@ function showQuestionMessage(text) {
 function displayQuestion() {
   const chatElement = document.getElementById('chat');
   chatElement.innerHTML = '';
-
-  if (currentIndex === 0) {
-    showMessage(introText);
-  }
 
   showProgressCard();
 
