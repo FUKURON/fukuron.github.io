@@ -288,6 +288,14 @@ function showLoadingScreen(callback) {
 
 function showResult() {
   const type = calculateType();
+
+  // GA4に診断結果を送信
+  if (typeof gtag === 'function') {
+    gtag('event', 'diagnosis_result', {
+      'type': type
+    });
+  }
+
   fadeOutChat(function() {
     showLoadingScreen(function() {
       window.location.href = 'result.html?type=' + type;
