@@ -262,9 +262,37 @@ function displayResult() {
   fadeInChat();
 }
 
+function showLoadingScreen(callback) {
+  const chatElement = document.getElementById('chat');
+  chatElement.innerHTML = '';
+
+  const loadingContainer = document.createElement('div');
+  loadingContainer.className = 'loading-container';
+
+  const loadingText = document.createElement('div');
+  loadingText.className = 'loading-text text-md';
+  loadingText.textContent = '診断中…';
+  loadingContainer.appendChild(loadingText);
+
+  const loadingSpinner = document.createElement('div');
+  loadingSpinner.className = 'loading-spinner';
+  loadingContainer.appendChild(loadingSpinner);
+
+  chatElement.appendChild(loadingContainer);
+  fadeInChat();
+
+  setTimeout(function() {
+    fadeOutChat(callback);
+  }, 3000);
+}
+
 function showResult() {
   const type = calculateType();
-  window.location.href = 'result.html?type=' + type;
+  fadeOutChat(function() {
+    showLoadingScreen(function() {
+      window.location.href = 'result.html?type=' + type;
+    });
+  });
 }
 
 function shuffleArray(array) {
