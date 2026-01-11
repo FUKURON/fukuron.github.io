@@ -13,19 +13,38 @@
 
       <p class="type-name text-lg">あなたの<br>推し活キャラを<br>見つけよう</p>
 
-      <div class="type-grid">
-        <img src="images/types/REDS.png" alt="REDS">
-        <img src="images/types/RIDS.png" alt="RIDS">
-        <img src="images/types/WELV.png" alt="WELV">
-        <img src="images/types/WILS.png" alt="WILS">
-      </div>
-
       <p class="text-sm catchcopy">たった16問の質問に応えるだけ。<br>あなたの推し活と楽しみ方がわかる！</p>
 
 
     <div class="controls">
       <a href="test.html" class="cta-button">今すぐ無料で診断する</a>
     </div>
+
+    <div class="character-list-section">
+      <h2 class="section-title">推し活キャラ</h2>
+      <div id="character-list" class="character-list"></div>
+    </div>
   </div>
+
+  <script src="js/typeData.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const characterList = document.getElementById('character-list');
+      
+      Object.keys(typeData).forEach(function(typeCode) {
+        const type = typeData[typeCode];
+        
+        const card = document.createElement('div');
+        card.className = 'character-card';
+        
+        card.innerHTML = 
+          '<img src="' + type.image + '" alt="' + type.name + '" class="character-image">' +
+          '<p class="character-name">' + type.name + '</p>' +
+          '<p class="character-code">' + typeCode + '</p>';
+        
+        characterList.appendChild(card);
+      });
+    });
+  </script>
 </body>
 </html>
