@@ -169,12 +169,12 @@ function displayResult() {
   retrySection.style.textAlign = 'center';
   retrySection.style.marginTop = '32px';
   const retryLink = document.createElement('a');
-  retryLink.href = 'test.html';
+  retryLink.href = 'index.html';
   retryLink.className = 'answer-button';
   retryLink.style.display = 'block';
   retryLink.style.textDecoration = 'none';
   retryLink.style.boxSizing = 'border-box';
-  retryLink.textContent = 'もう一度診断する';
+  retryLink.textContent = '最初に戻る';
   retrySection.appendChild(retryLink);
   chatElement.appendChild(retrySection);
 
