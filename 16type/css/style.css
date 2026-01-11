@@ -341,7 +341,7 @@ body {
 .tap-icon {
   position: absolute;
   top: 8px;
-  right: 8px;
+  right: 16px;
   color: #7D5A96;
   font-size: 12px;
   font-weight: bold;
