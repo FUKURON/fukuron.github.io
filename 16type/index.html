@@ -13,11 +13,14 @@
 
       <p class="type-name text-lg">あなたの<br>推し活キャラを<br>見つけよう</p>
 
-      <p class="text-sm catchcopy">たった16問の質問に応えるだけ。<br>あなたの推し活と楽しみ方がわかる！</p>
+      <p class="text-sm catchcopy">16問の質問に答えるだけ。<br>推し活のスタイルと楽しみ方がわかる！</p>
 
 
     <div class="controls">
-      <a href="test.html" class="cta-button">今すぐ無料で診断する</a>
+      <div class="cta-button-wrapper">
+        <span class="tap-finger">👆</span>
+        <a href="test.html" class="cta-button">今すぐ無料で診断する</a>
+      </div>
     </div>
 
     <div class="character-list-section">
@@ -30,23 +33,23 @@
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const characterList = document.getElementById('character-list');
-      
+
       Object.keys(typeData).forEach(function(typeCode) {
         const type = typeData[typeCode];
-        
+
         const cardLink = document.createElement('a');
         cardLink.href = 'result.html?type=' + typeCode;
         cardLink.className = 'character-card-link';
-        
+
         const card = document.createElement('div');
         card.className = 'character-card';
-        
-        card.innerHTML = 
+
+        card.innerHTML =
           '<span class="tap-icon">&#x276F;</span>' +
           '<img src="' + type.image + '" alt="' + type.name + '" class="character-image">' +
           '<p class="character-name">' + type.name + '</p>' +
           '<p class="character-code">' + typeCode + '</p>';
-        
+
         cardLink.appendChild(card);
         characterList.appendChild(cardLink);
       });

@@ -259,7 +259,7 @@ body {
   display: block;
   width: 100%;
   padding: 21px 16px;
-  margin: 32px 0;
+  margin: 32px 0 64px 0;
   border: none;
   border-radius: 50px;
   background: linear-gradient(135deg, #FF6B9D, #C44AFF);
@@ -276,6 +276,30 @@ body {
 
 .cta-button:active {
   transform: scale(0.98);
+}
+
+.cta-button-wrapper {
+  position: relative;
+}
+
+.tap-finger {
+  position: absolute;
+  left: 50%;
+  top: 82px;
+  transform: translateX(-50%);
+  font-size: 70px;
+  animation: tapAnimation 1.2s ease-in-out infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@keyframes tapAnimation {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-8px);
+  }
 }
 
 /* ローディング画面 */
