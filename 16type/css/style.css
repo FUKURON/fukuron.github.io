@@ -259,7 +259,7 @@ body {
   display: block;
   width: 100%;
   padding: 21px 16px;
-  margin: 32px 0;
+  margin: 32px 0 64px 0;
   border: none;
   border-radius: 50px;
   background: linear-gradient(135deg, #FF6B9D, #C44AFF);
@@ -285,9 +285,9 @@ body {
 .tap-finger {
   position: absolute;
   left: 50%;
-  bottom: 16px;
+  top: 82px;
   transform: translateX(-50%);
-  font-size: 32px;
+  font-size: 70px;
   animation: tapAnimation 1.2s ease-in-out infinite;
   z-index: 1;
   pointer-events: none;
