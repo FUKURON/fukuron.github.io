@@ -332,3 +332,69 @@ body {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+/* キャラ一覧セクション */
+.character-list-section {
+  margin-top: 32px;
+}
+
+.character-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.character-card {
+  text-align: center;
+  padding: 16px 0;
+}
+
+.character-image-wrapper {
+  display: inline-block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.character-image-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 140px;
+  height: 140px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.character-image {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  position: relative;
+  z-index: 1;
+}
+
+.character-info {
+  text-align: center;
+}
+
+.character-name {
+  font-size: 20px;
+  font-weight: bold;
+  color: #6B4A7D;
+  margin: 0 0 4px 0;
+}
+
+.character-code {
+  font-weight: bold;
+  color: rgba(125, 90, 150, 0.6);
+  margin: 0 0 8px 0;
+}
+
+.character-personality {
+  line-height: 1.6;
+  margin: 0;
+  text-align: left;
+}

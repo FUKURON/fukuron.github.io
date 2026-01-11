@@ -26,6 +26,37 @@
     <div class="controls">
       <a href="test.html" class="cta-button">今すぐ無料で診断する</a>
     </div>
+
+    <div class="character-list-section">
+      <h2 class="section-title">推し活キャラ</h2>
+      <div id="character-list" class="character-list"></div>
+    </div>
   </div>
+
+  <script src="js/typeData.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const characterList = document.getElementById('character-list');
+      
+      Object.keys(typeData).forEach(function(typeCode) {
+        const type = typeData[typeCode];
+        
+        const card = document.createElement('div');
+        card.className = 'character-card';
+        
+        card.innerHTML = 
+          '<div class="character-image-wrapper">' +
+            '<img src="' + type.image + '" alt="' + type.name + '" class="character-image">' +
+          '</div>' +
+          '<div class="character-info">' +
+            '<p class="character-name">' + type.name + '</p>' +
+            '<p class="character-code">' + typeCode + '</p>' +
+            '<p class="character-personality">' + type.personality + '</p>' +
+          '</div>';
+        
+        characterList.appendChild(card);
+      });
+    });
+  </script>
 </body>
 </html>
