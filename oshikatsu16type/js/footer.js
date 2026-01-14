@@ -6,8 +6,8 @@
 
 const footerConfig = {
   links: [
-    { text: 'プライバシーポリシー', url: '#' },
-    { text: '利用規約', url: '#' }
+    { text: 'プライバシーポリシー', url: 'oshikatsu16type_privacy_policy.pdf' },
+    { text: '利用規約', url: 'oshikatsu16type_terms_of_service.pdf' }
   ],
   copyright: '推し活キャラ診断 © FUKURON inc. All rights reserved.'
 };
