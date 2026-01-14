@@ -403,6 +403,25 @@ body {
   text-align: center;
 }
 
+.footer-links {
+  margin-bottom: 8px;
+}
+
+.footer-link {
+  font-size: 12px;
+  color: rgba(125, 90, 150, 0.6);
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+
+.footer-separator {
+  font-size: 12px;
+  color: rgba(125, 90, 150, 0.6);
+}
+
 .footer-text {
   font-size: 12px;
   color: rgba(125, 90, 150, 0.6);
