@@ -298,7 +298,7 @@ function showResult() {
 
   fadeOutChat(function() {
     showLoadingScreen(function() {
-      window.location.href = 'result.html?type=' + type;
+      window.location.href = 'result/' + type + '.html';
     });
   });
 }
