@@ -33,8 +33,7 @@
       <div class="section-text text-sm">日常の中に推しがいる、穏やかに一途な愛を育む。安定感があり、SNSでも穏やかな関係を築きます。</div>
     </div>
     <div class="share-section">
-      <div class="section-title text-sm">結果をシェアしよう</div>
-      <button class="share-button" id="copyLinkButton" onclick="copyResultLink()">結果リンクをコピー</button>
+      <button class="share-button" id="copyLinkButton" onclick="copyResultLink()">リンクをコピーしてシェア</button>
     </div>
     <div class="result-section">
       <div class="section-title text-sm">推し活の楽しみ方</div>
@@ -84,13 +83,13 @@
         button.textContent = 'コピーしました！';
         button.classList.add('copied');
         setTimeout(function() {
-          button.textContent = '結果リンクをコピー';
+          button.textContent = 'リンクをコピーしてシェア';
           button.classList.remove('copied');
         }, 2000);
       }).catch(function() {
         button.textContent = 'コピーできませんでした';
         setTimeout(function() {
-          button.textContent = '結果リンクをコピー';
+          button.textContent = 'リンクをコピーしてシェア';
         }, 2000);
       });
     }
