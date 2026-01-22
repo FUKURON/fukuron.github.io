@@ -32,6 +32,10 @@
     <div class="result-section">
       <div class="section-text text-sm">複数の界隈で楽しさを振りまくムードメーカー。ジャンルの壁を越えて新しいトキメキを見つける天才です。</div>
     </div>
+    <div class="share-section">
+      <div class="section-title text-sm">結果をシェアしよう</div>
+      <button class="share-button" id="copyLinkButton" onclick="copyResultLink()">結果リンクをコピー</button>
+    </div>
     <div class="result-section">
       <div class="section-title text-sm">推し活の楽しみ方</div>
       <div class="section-text text-sm">交流会の開催、ジャンルを横断した考察、現場での仲間作り。</div>
@@ -71,6 +75,26 @@
       <a href="../index.html" class="answer-button" style="display: block; text-decoration: none; box-sizing: border-box;">最初に戻る</a>
     </div>
   </div>
+  <script>
+    function copyResultLink() {
+      const url = window.location.href;
+      const button = document.getElementById('copyLinkButton');
+      
+      navigator.clipboard.writeText(url).then(function() {
+        button.textContent = 'コピーしました！';
+        button.classList.add('copied');
+        setTimeout(function() {
+          button.textContent = '結果リンクをコピー';
+          button.classList.remove('copied');
+        }, 2000);
+      }).catch(function() {
+        button.textContent = 'コピーできませんでした';
+        setTimeout(function() {
+          button.textContent = '結果リンクをコピー';
+        }, 2000);
+      });
+    }
+  </script>
   <script src="../js/footer.js"></script>
 </body>
 </html>
