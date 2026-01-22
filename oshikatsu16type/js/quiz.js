@@ -88,7 +88,7 @@ function showProgressCard() {
   const chatElement = document.getElementById('chat');
   const progressDiv = document.createElement('div');
   progressDiv.className = 'progress-card text-sm';
-  progressDiv.textContent = (currentIndex + 1) + '/' + questions.length;
+  progressDiv.textContent = (currentIndex + 1) + ' 問目 (全' + questions.length + '問)';
   chatElement.appendChild(progressDiv);
 }
 

@@ -31,7 +31,7 @@ body {
   justify-content: flex-start;
   min-height: 100vh;
   margin: 0;
-  padding: 24px 24px;
+  padding: 12px 12px;
   box-sizing: border-box;
 }
 
@@ -39,7 +39,7 @@ body {
 .chat {
   width: 100%;
   max-width: 400px;
-  padding: 24px 24px;
+  padding: 16px 16px;
   opacity: 0;
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(12px);
