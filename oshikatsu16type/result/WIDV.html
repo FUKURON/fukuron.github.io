@@ -32,6 +32,9 @@
     <div class="result-section">
       <div class="section-text text-sm">あらゆる推しや界隈に精通する、歩く百科事典。深い知識を持ちながら、ひとり静かに推しの観測を続けます。</div>
     </div>
+    <div class="share-section">
+      <button class="share-button" id="copyLinkButton" onclick="copyResultLink()">リンクをコピーしてシェア</button>
+    </div>
     <div class="result-section">
       <div class="section-title text-sm">推し活の楽しみ方</div>
       <div class="section-text text-sm">徹底的なリサーチ、ジャンルを越えた比較分析、背景知識の深掘り。</div>
@@ -71,6 +74,26 @@
       <a href="../index.html" class="answer-button" style="display: block; text-decoration: none; box-sizing: border-box;">最初に戻る</a>
     </div>
   </div>
+  <script>
+    function copyResultLink() {
+      const url = window.location.origin + window.location.pathname + '?utm_medium=share';
+      const button = document.getElementById('copyLinkButton');
+      
+      navigator.clipboard.writeText(url).then(function() {
+        button.textContent = 'コピーしました！';
+        button.classList.add('copied');
+        setTimeout(function() {
+          button.textContent = 'リンクをコピーしてシェア';
+          button.classList.remove('copied');
+        }, 2000);
+      }).catch(function() {
+        button.textContent = 'コピーできませんでした';
+        setTimeout(function() {
+          button.textContent = 'リンクをコピーしてシェア';
+        }, 2000);
+      });
+    }
+  </script>
   <script src="../js/footer.js"></script>
 </body>
 </html>

@@ -32,6 +32,9 @@
     <div class="result-section">
       <div class="section-text text-sm">推しは人生の道標。派手な動きはなくても、数年、数十年と変わらず推し続ける誠実なタイプ。</div>
     </div>
+    <div class="share-section">
+      <button class="share-button" id="copyLinkButton" onclick="copyResultLink()">リンクをコピーしてシェア</button>
+    </div>
     <div class="result-section">
       <div class="section-title text-sm">推し活の楽しみ方</div>
       <div class="section-text text-sm">過去作品の繰り返し視聴、推しの祭壇を自分の部屋に作る。</div>
@@ -71,6 +74,26 @@
       <a href="../index.html" class="answer-button" style="display: block; text-decoration: none; box-sizing: border-box;">最初に戻る</a>
     </div>
   </div>
+  <script>
+    function copyResultLink() {
+      const url = window.location.origin + window.location.pathname + '?utm_medium=share';
+      const button = document.getElementById('copyLinkButton');
+      
+      navigator.clipboard.writeText(url).then(function() {
+        button.textContent = 'コピーしました！';
+        button.classList.add('copied');
+        setTimeout(function() {
+          button.textContent = 'リンクをコピーしてシェア';
+          button.classList.remove('copied');
+        }, 2000);
+      }).catch(function() {
+        button.textContent = 'コピーできませんでした';
+        setTimeout(function() {
+          button.textContent = 'リンクをコピーしてシェア';
+        }, 2000);
+      });
+    }
+  </script>
   <script src="../js/footer.js"></script>
 </body>
 </html>

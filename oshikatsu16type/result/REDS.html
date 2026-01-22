@@ -32,6 +32,9 @@
     <div class="result-section">
       <div class="section-text text-sm">推しの幸せは私の幸せ。現場も記念日も全力、推しへの愛が日々のエネルギー源。周囲を明るく照らす力を持っています。</div>
     </div>
+    <div class="share-section">
+      <button class="share-button" id="copyLinkButton" onclick="copyResultLink()">リンクをコピーしてシェア</button>
+    </div>
     <div class="result-section">
       <div class="section-title text-sm">推し活の楽しみ方</div>
       <div class="section-text text-sm">記念日を祝う、ポジティブな言葉で布教、仲間との積極的な交流。</div>
@@ -71,6 +74,26 @@
       <a href="../index.html" class="answer-button" style="display: block; text-decoration: none; box-sizing: border-box;">最初に戻る</a>
     </div>
   </div>
+  <script>
+    function copyResultLink() {
+      const url = window.location.origin + window.location.pathname + '?utm_medium=share';
+      const button = document.getElementById('copyLinkButton');
+      
+      navigator.clipboard.writeText(url).then(function() {
+        button.textContent = 'コピーしました！';
+        button.classList.add('copied');
+        setTimeout(function() {
+          button.textContent = 'リンクをコピーしてシェア';
+          button.classList.remove('copied');
+        }, 2000);
+      }).catch(function() {
+        button.textContent = 'コピーできませんでした';
+        setTimeout(function() {
+          button.textContent = 'リンクをコピーしてシェア';
+        }, 2000);
+      });
+    }
+  </script>
   <script src="../js/footer.js"></script>
 </body>
 </html>

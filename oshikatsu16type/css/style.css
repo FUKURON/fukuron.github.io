@@ -31,7 +31,7 @@ body {
   justify-content: flex-start;
   min-height: 100vh;
   margin: 0;
-  padding: 24px 24px;
+  padding: 12px 12px;
   box-sizing: border-box;
 }
 
@@ -39,7 +39,7 @@ body {
 .chat {
   width: 100%;
   max-width: 400px;
-  padding: 24px 24px;
+  padding: 16px 16px;
   opacity: 0;
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(12px);
@@ -393,6 +393,36 @@ body {
   font-weight: bold;
   color: rgba(125, 90, 150, 0.6);
   margin: 0;
+}
+
+/* シェアセクション */
+.share-section {
+  margin: 32px 0;
+  text-align: center;
+}
+
+.share-button {
+  width: 100%;
+  padding: 14px 16px;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #FF6B9D, #C44AFF);
+  color: #fff;
+  font-size: 16px;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.2s, transform 0.1s;
+  box-shadow: 0 4px 15px rgba(196, 74, 255, 0.3);
+}
+
+.share-button:active {
+  transform: scale(0.95);
+}
+
+.share-button.copied {
+  background: linear-gradient(135deg, #4CAF50, #45a049);
 }
 
 /* フッター */
