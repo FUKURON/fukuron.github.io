@@ -406,15 +406,14 @@ body {
   padding: 14px 16px;
   border: none;
   border-radius: 50px;
-  background: linear-gradient(135deg, #FF6B9D, #C44AFF);
-  color: #fff;
+  background: rgba(255, 255, 255, 0.6);
+  color: #7D5A96;
   font-size: 16px;
   font-family: 'M PLUS Rounded 1c', sans-serif;
   font-weight: bold;
   cursor: pointer;
   text-align: center;
-  transition: background 0.2s, transform 0.1s;
-  box-shadow: 0 4px 15px rgba(196, 74, 255, 0.3);
+  transition: background 0.2s, transform 0.1s, color 0.2s;
 }
 
 .share-button:active {
@@ -422,7 +421,8 @@ body {
 }
 
 .share-button.copied {
-  background: linear-gradient(135deg, #4CAF50, #45a049);
+  background: rgba(76, 175, 80, 0.6);
+  color: #fff;
 }
 
 /* フッター */
