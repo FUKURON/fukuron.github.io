@@ -41,7 +41,7 @@
       <div class="section-text text-sm">推しの幸せは私の幸せ。現場も記念日も全力、推しへの愛が日々のエネルギー源。周囲を明るく照らす力を持っています。</div>
     </div>
     <div class="share-section">
-      <button class="share-button" id="copyLinkButton" onclick="copyResultLink()">リンクをコピーしてシェア</button>
+      <button class="share-button" id="copyLinkButton" onclick="copyResultLink()"><img src="../images/icon_link.svg" alt="" class="share-button-icon">リンクをコピーしてシェア</button>
     </div>
     <div class="result-section">
       <div class="section-title text-sm">推し活の楽しみ方</div>
@@ -87,17 +87,18 @@
       const url = window.location.origin + window.location.pathname + '?utm_medium=share';
       const button = document.getElementById('copyLinkButton');
       
+      const iconHtml = '<img src="../images/icon_link.svg" alt="" class="share-button-icon">';
       navigator.clipboard.writeText(url).then(function() {
-        button.textContent = 'コピーしました！';
+        button.innerHTML = iconHtml + 'コピーしました！';
         button.classList.add('copied');
         setTimeout(function() {
-          button.textContent = 'リンクをコピーしてシェア';
+          button.innerHTML = iconHtml + 'リンクをコピーしてシェア';
           button.classList.remove('copied');
         }, 2000);
       }).catch(function() {
-        button.textContent = 'コピーできませんでした';
+        button.innerHTML = iconHtml + 'コピーできませんでした';
         setTimeout(function() {
-          button.textContent = 'リンクをコピーしてシェア';
+          button.innerHTML = iconHtml + 'リンクをコピーしてシェア';
         }, 2000);
       });
     }

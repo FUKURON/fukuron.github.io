@@ -426,6 +426,13 @@ body {
   background: linear-gradient(135deg, #4CAF50, #45a049);
 }
 
+.share-button-icon {
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
 /* フッター */
 .site-footer {
   width: 100%;
