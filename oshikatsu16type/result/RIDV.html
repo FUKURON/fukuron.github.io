@@ -41,7 +41,7 @@
       <div class="section-text text-sm">心が震えるものを求めて感性の旅を続ける。ひとつの場所にとどまらず、心動くままに推します。</div>
     </div>
     <div class="share-section">
-      <button class="share-button" id="copyLinkButton" onclick="copyResultLink()">リンクをコピーしてシェア</button>
+      <button class="share-button" id="copyLinkButton" onclick="copyResultLink()"><img src="../images/icon_link.svg" alt="" class="share-button-icon">リンクをコピーしてシェア</button>
     </div>
     <div class="result-section">
       <div class="section-title text-sm">推し活の楽しみ方</div>
@@ -87,17 +87,18 @@
       const url = window.location.origin + window.location.pathname + '?utm_medium=share';
       const button = document.getElementById('copyLinkButton');
       
+      const iconHtml = '<img src="../images/icon_link.svg" alt="" class="share-button-icon">';
       navigator.clipboard.writeText(url).then(function() {
         button.textContent = 'コピーしました！';
         button.classList.add('copied');
         setTimeout(function() {
-          button.textContent = 'リンクをコピーしてシェア';
+          button.innerHTML = iconHtml + 'リンクをコピーしてシェア';
           button.classList.remove('copied');
         }, 2000);
       }).catch(function() {
         button.textContent = 'コピーできませんでした';
         setTimeout(function() {
-          button.textContent = 'リンクをコピーしてシェア';
+          button.innerHTML = iconHtml + 'リンクをコピーしてシェア';
         }, 2000);
       });
     }
