@@ -446,6 +446,12 @@ body {
   margin: 0 0 16px 0;
 }
 
+.sns-icons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
 .sns-icon-link {
   display: inline-flex;
   align-items: center;
