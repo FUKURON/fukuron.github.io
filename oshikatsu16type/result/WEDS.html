@@ -89,14 +89,14 @@
       
       const iconHtml = '<img src="../images/icon_link.svg" alt="" class="share-button-icon">';
       navigator.clipboard.writeText(url).then(function() {
-        button.innerHTML = iconHtml + 'コピーしました！';
+        button.textContent = 'コピーしました！';
         button.classList.add('copied');
         setTimeout(function() {
           button.innerHTML = iconHtml + 'リンクをコピーしてシェア';
           button.classList.remove('copied');
         }, 2000);
       }).catch(function() {
-        button.innerHTML = iconHtml + 'コピーできませんでした';
+        button.textContent = 'コピーできませんでした';
         setTimeout(function() {
           button.innerHTML = iconHtml + 'リンクをコピーしてシェア';
         }, 2000);
