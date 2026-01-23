@@ -473,6 +473,11 @@ body {
   filter: brightness(0) saturate(100%) invert(31%) sepia(15%) saturate(1500%) hue-rotate(240deg) brightness(90%) contrast(90%);
 }
 
+.sns-icon-x {
+  width: 36px;
+  height: 36px;
+}
+
 /* フッター */
 .site-footer {
   width: 100%;
