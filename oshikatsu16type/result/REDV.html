@@ -81,12 +81,23 @@
     <div class="result-section" style="text-align: center; margin-top: 32px;">
       <a href="../index.html" class="answer-button" style="display: block; text-decoration: none; box-sizing: border-box;">最初に戻る</a>
     </div>
+    <div class="sns-section">
+      <p class="sns-promotion-text">＼最新情報はこちらをチェック／</p>
+      <div class="sns-icons">
+        <a href="https://www.instagram.com/harajukuholic/" target="_blank" rel="noopener noreferrer" class="sns-icon-link">
+          <img src="../images/icon_Instagram.svg" alt="Instagram" class="sns-icon">
+        </a>
+        <a href="https://x.com/InfoAdoree" target="_blank" rel="noopener noreferrer" class="sns-icon-link">
+          <img src="../images/icon_x.svg" alt="X" class="sns-icon sns-icon-x">
+        </a>
+      </div>
+    </div>
   </div>
   <script>
     function copyResultLink() {
       const url = window.location.origin + window.location.pathname + '?utm_medium=share';
       const button = document.getElementById('copyLinkButton');
-      
+
       const iconHtml = '<img src="../images/icon_link.svg" alt="" class="share-button-icon">';
       navigator.clipboard.writeText(url).then(function() {
         button.textContent = 'コピーしました！';
