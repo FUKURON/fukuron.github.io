@@ -433,6 +433,51 @@ body {
   vertical-align: middle;
 }
 
+/* SNS誘導セクション */
+.sns-section {
+  margin-top: 32px;
+  text-align: center;
+}
+
+.sns-promotion-text {
+  font-size: 16px;
+  font-weight: bold;
+  color: #6B4A7D;
+  margin: 0 0 8px 0;
+}
+
+.sns-icons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.sns-icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  transition: transform 0.2s;
+}
+
+.sns-icon-link:active {
+  transform: scale(0.95);
+}
+
+.sns-icon {
+  width: 40px;
+  height: 40px;
+  filter: brightness(0) saturate(100%) invert(31%) sepia(15%) saturate(1500%) hue-rotate(240deg) brightness(90%) contrast(90%);
+}
+
+.sns-icon-x {
+  width: 34px;
+  height: 34px;
+}
+
 /* フッター */
 .site-footer {
   width: 100%;
