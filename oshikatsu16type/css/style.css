@@ -248,6 +248,13 @@ body {
 }
 
 /* トップページ用スタイル */
+.title-image {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto 16px auto;
+}
+
 .catchcopy {
   margin: 16px 0 0 0 ;
   line-height: 1.6;
